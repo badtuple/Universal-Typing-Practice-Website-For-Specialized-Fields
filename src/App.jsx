@@ -2,7 +2,7 @@ import { useState } from 'react';
 // import AutosizeInput from 'react-input-autosize';
 import './App.css'
 import * as CONSTANTS from './misc/constants.jsx'
-import { isAlphNum } from './misc/constants.jsx';
+import { isAlphNumSym } from './misc/constants.jsx';
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
 function TypingPracticeField() {
@@ -29,8 +29,8 @@ function TypingPracticeField() {
       setUserTextArray(userTextArray.slice(0,-1))
       }
     }
-    else if (isAlphNum(currentInputText)) {
-    // else if (isAlphNum(currentInputEvent.key)) {
+    else if (isAlphNumSym(currentInputText)) {
+    // else if (isAlphNumSym(currentInputEvent.key)) {
       // userTextArray.push(currentInputText)
 
       if (currentInputText === typingPracTextArray[counter]) {
