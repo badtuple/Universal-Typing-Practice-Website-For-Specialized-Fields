@@ -4,7 +4,7 @@ import './App.css'
 import * as CONSTANTS from './misc/constants.jsx'
 import { isAlphNum } from './misc/constants.jsx';
 
-// define text box component that when selected, listens for user text input and updates state of text in text box
+// Defines text box component that when selected, listens for user text input and updates state of text in text box.
 function TypingPracticeField() {
   const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
   const typingPracTextArray = typingPracText.split('');
@@ -14,11 +14,10 @@ function TypingPracticeField() {
   // const [typeText, setTypeText] = useState(typingPracText)
   // const [userText, setUserText] = useState("")
 
-
+  // Function that checks currently typed char and: if userTextArray length matches typingPracTextArray length then "exit" (ie will later add code to stop timer, finalize results, unfocus typing practice field component, & display post test screen), else if backspace then decrement counter by 1 and remove last item from userTextArray, else if input is alphanumeric or a symbol then check if user's currently typed char is same value as current index of typePracTextArray and if so add current letter to end of userTextArray but as green and if not add it as red.
   let onType = function(currentInputEvent) {
     let currentInputText = currentInputEvent.key
 
-    // Below conditional checks currently typed char and: if userTextArray length matches typingPracTextArray length then "exit" (ie will add code to stop timer, finalize results, unfocus typing practice field component, & display ), else if backspace then pop last item from usertext array and decrement counter by 1, if any other char; then check if currently typed usertext char is same as current index of typepractextArray and if so print current letter as green and if not print current letter as red
     if (userTextArray.length === typingPracTextArray.length) {
       console.log('practice run is complete')
     }
