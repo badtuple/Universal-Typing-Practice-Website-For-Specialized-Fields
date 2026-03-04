@@ -47,7 +47,7 @@ function TypingPracticeField() {
   }
   
   // A variable used to hold a new array made of the array of user typed text (colored accordingly) and the rest of the typing practice text
-  const displayTextArray = userTextArray.concat(typingPracTextArray.slice(userTextArray.length).map((c) => <span className='practiceText'>{c}</span>))
+  const displayTextArray = userTextArray.concat(typingPracTextArray.slice(userTextArray.length).map((c) => <span className='practiceText'>{c}</span>))  // note: figure out how to add key prop to avoid that "every child must have unique key" error
 
   // A useEffect/useRef block of code to autofocus the typing field
   const autoFocusElement = useRef(null);
