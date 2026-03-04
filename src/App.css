@@ -12,6 +12,7 @@
 .green {
   color: green;
 }
+/* Remove above two classes and insert two classes that change a span element content in following ways: color of text (red or green), adds green or red rectangle behind element, & later an animation that displays the incorrectly typed character shaking and then disappearing. ...(also later consider remaking in a react jsx module for storing these styles) */
 
 .logo {
   height: 6em;
