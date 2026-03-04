@@ -32,10 +32,12 @@ function TypingPracticeField() {
     else if (isAlphNumSym(currentInputText)) {
 
       if (currentInputText === typingPracTextArray[counter]) {
-        setUserTextArray([...userTextArray, <span className='green' key={'userTextArray' + counter}>{currentInputText}</span>])
+        // setUserTextArray([...userTextArray, <span className='green' key={'userTextArray' + counter}>{currentInputText}</span>])
+        setUserTextArray([...userTextArray, <span className='green' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>])
       }
       else {
-        setUserTextArray([...userTextArray, <span className="red" key={'userTextArray' + counter}>{currentInputText}</span>])
+        // setUserTextArray([...userTextArray, <span className="red" key={'userTextArray' + counter}>{currentInputText}</span>])
+        setUserTextArray([...userTextArray, <span className="red" key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>])
       }
       setCounter(counter + 1)
     }
@@ -44,6 +46,7 @@ function TypingPracticeField() {
     }
   }
   
+  // A variable used to hold a new array made of the array of user typed text (colored accordingly) and the rest of the typing practice text
   const displayTextArray = userTextArray.concat(typingPracTextArray.slice(userTextArray.length))
 
   // A useEffect/useRef block of code to autofocus the typing field
