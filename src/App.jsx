@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css'
 import * as CONSTANTS from './misc/constants.jsx'
 import { isAlphNumSym } from './misc/constants.jsx';
+import './components/Timer.jsx'
+import Timer from './components/Timer.jsx';
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
 function TypingPracticeField() {
@@ -73,7 +75,8 @@ function App() {
   return (
     <>
       <h1>THE "APP" COMPONENT BEGINS HERE</h1>
-      
+
+      <Timer />
       <TypingPracticeField />
       {/* should i modularize above component into more components? */}
 
