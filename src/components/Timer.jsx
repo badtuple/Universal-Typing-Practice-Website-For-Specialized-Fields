@@ -10,7 +10,7 @@ function Timer() {
     const [counter, setCounter] = useState(60);
     // try using useReducer.. or maybe not?
     // const [counter, incrementCounter] = useReducer((i) => i + 1, 0);
-    const [remainingTime, setRemainingTime] = useState(timerLength);
+    // const [remainingTime, setRemainingTime] = useState(timerLength);
     // const [currentTime, setCurrentTime]
 
     useEffect( () => {
@@ -54,13 +54,18 @@ function Timer() {
         // not useable until state management code of Timer & TypingPracticeField is written in App
     }
 
-    // let displayTimer = null
+    const displayTimer = function() {
+        let mins = Math.floor(counter / 60);
+        let secs = counter % 60;
+
+        return `${mins}:${String(secs).padStart(2,'0')}`;
+    }
 
     return (
     <>
       {/* <p className='typingPracField'  tabIndex='1' onKeyDown={onType} ref={autoFocusElement}>{displayTextArray}</p> */}
       {/* {console.log('timer component mounted')} */}
-      <div className='timer' tabIndex='1'>{counter}</div>
+      <div className='timer' tabIndex='1'>{displayTimer()}</div>
     </>
   )
 }
