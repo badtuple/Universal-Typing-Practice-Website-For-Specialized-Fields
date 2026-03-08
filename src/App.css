@@ -6,7 +6,16 @@
 }
 
 .timer {
-  background-color: aqua;
+  background-color: #404040;
+  color: aqua;
+  width: 10%;
+  min-width: 50px;
+  margin: 0 auto;
+  border-color: #00ff00;
+  /* add code and styling to animate a flash/glow and change border color to red on test end */
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
 }
 
 .typingPracField {
