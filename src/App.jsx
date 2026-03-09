@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import Timer from './components/Timer.jsx';
 import TypingPracticeField from './components/TypingPracticeField.jsx'
+import UserTypingStats from './components/UserTypingStats.jsx'
 
 // Main App function to be exported to main.jsx & index.html
 function App() {
@@ -20,6 +21,8 @@ function App() {
       {/* TypingPracticeField's props are 1 output: on user's first input set startTimer to true & 1 input: timerExpired bool to prevent user input if the timer has expired */}
       <TypingPracticeField onFirstKeyPress={() => setStartTimer(true)} preventInput={timerExpired} />
       {/* should i modularize above component into more components? */}
+
+      <UserTypingStats/>
 
     </>
   )

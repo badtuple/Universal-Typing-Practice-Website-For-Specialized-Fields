@@ -18,6 +18,14 @@
   border-radius: 10px;
 }
 
+.typingStats {
+  background-color: #404040;
+  color:antiquewhite;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
 .typingPracField {
   font-family: "Space Mono", "JetBrains Mono", "Roboto Mono", monospace, sans-serif;
   letter-spacing: 0.1em;
@@ -44,6 +52,7 @@
 .practiceText {
   margin: 0.08em;
 }
+
 
 .logo {
   height: 6em;
