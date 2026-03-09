@@ -9,11 +9,12 @@ import Timer from './Timer.jsx';
 import '../App.css'
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
-function TypingPracticeField() {
+function TypingPracticeField({onFirstKeyPress, preventInput}) {
   const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
   const typingPracTextArray = typingPracText.split('');
   const [counter, setCounter] = useState(0);
   const [userTextArray, setUserTextArray] = useState([]);
+  const [isFirstKeyPress, setIsFirstKeyPress] = useState(true)
 
   // const [typeText, setTypeText] = useState(typingPracText)
   // const [userText, setUserText] = useState("")
@@ -22,8 +23,12 @@ function TypingPracticeField() {
   const onType = function(currentInputEvent) {
     let currentInputText = currentInputEvent.key
 
-    if (userTextArray.length === typingPracTextArray.length) {
-      console.log('practice run is complete')
+    // get rid of the first conditional (not needed if typing test is timed)
+    // if (userTextArray.length === typingPracTextArray.length) {
+    //   console.log('practice run is complete')
+    // }
+    if (preventInput) {
+      console.log('practice run is completed. no input allowed.')
     }
     else if (currentInputEvent.key === 'Backspace') {
       if (counter) {
@@ -35,6 +40,14 @@ function TypingPracticeField() {
     }
     else if (isAlphNumSym(currentInputText)) {
 
+      // this code will only run once on the initial alphanumeric user input
+      if (isFirstKeyPress) {
+        console.log('code that runs once!')
+        setIsFirstKeyPress(false)
+        onFirstKeyPress()
+      }
+      
+      // add typed text as green or red span objects to userTextArray
       if (currentInputText === typingPracTextArray[counter]) {
         // setUserTextArray([...userTextArray, <span className='green' key={'userTextArray' + counter}>{currentInputText}</span>])
         setUserTextArray([...userTextArray, <span className='correctInput' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>])
@@ -43,6 +56,8 @@ function TypingPracticeField() {
         // setUserTextArray([...userTextArray, <span className="red" key={'userTextArray' + counter}>{currentInputText}</span>])
         setUserTextArray([...userTextArray, <span className='incorrectInput' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>])
       }
+
+      // increment
       setCounter(counter + 1)
     }
     else {
