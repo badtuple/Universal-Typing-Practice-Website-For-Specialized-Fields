@@ -3,10 +3,10 @@ import { useState, useEffect, useReducer } from 'react';
 import '../App.css'
 
 
-function Timer({startTimer, onTimerExpire}) {
+function Timer({startTimer, onTimerExpire, setTimeElapsed}) {
     // below variable is the length of time the user wants the typing practice session to last.. hardcoded for now: 1 minute or 60,000 ms
     // we can but timerLength & timeRemaining state in parent component
-    const timerLength = 6;
+    const timerLength = 60;
     
     const [timeRemaining, setTimeRemaining] = useState(timerLength);
     // try using useReducer.. or maybe not?
@@ -21,8 +21,8 @@ function Timer({startTimer, onTimerExpire}) {
                     setTimeRemaining(timeRemaining - 1);
                     // console.log('timer updated')
                     // console.log(timeRemaining)
-                    // console.log(timeElapsed())
-                    return timeElapsed();
+                    // console.log(timeElapsed)
+                    setTimeElapsed(timerLength - timeRemaining);
                 }
                 // else if (remainingTime == 0) {
                     else if (timeRemaining === 0) {
@@ -44,9 +44,9 @@ function Timer({startTimer, onTimerExpire}) {
     //     // not useable until state management code of Timer & TypingPracticeField is written in App
     // }
 
-    let timeElapsed = function() {
-        return timerLength - timeRemaining;
-    }
+    // let timeElapsed = function() {
+    //     return timerLength - timeRemaining;
+    // }
     
     let getTimeRemaining = function() {
         // not useable until state management code of Timer & TypingPracticeField is written in App

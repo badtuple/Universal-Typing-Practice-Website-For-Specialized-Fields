@@ -9,11 +9,12 @@ import Timer from './Timer.jsx';
 import '../App.css'
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
-function TypingPracticeField({onFirstKeyPress, preventInput}) {
+function TypingPracticeField({onFirstKeyPress, preventInput, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, wordsTyped, charTypedCorrectly, totalCharTyped}) {
   const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
   const typingPracTextArray = typingPracText.split('');
   const [counter, setCounter] = useState(0);
   const [userTextArray, setUserTextArray] = useState([]);
+  const [userTextArrayExposed, setUserTextArrayExposed] = useState([]);
   const [isFirstKeyPress, setIsFirstKeyPress] = useState(true)
 
   // const [typeText, setTypeText] = useState(typingPracText)
@@ -22,6 +23,8 @@ function TypingPracticeField({onFirstKeyPress, preventInput}) {
   // Function that checks currently typed char and: if userTextArray length matches typingPracTextArray length then "exit" (ie will later add code to stop timer, finalize results, unfocus typing practice field component, & display post test screen), else if backspace then decrement counter by 1 and remove last item from userTextArray, else if input is alphanumeric or a symbol then check if user's currently typed char is same value as current index of typePracTextArray and if so add current letter to end of userTextArray but as green and if not add it as red.
   const onType = function(currentInputEvent) {
     let currentInputText = currentInputEvent.key
+    let updatedUserArray
+    // let updatedUserArrayExposed
 
     // get rid of the first conditional (not needed if typing test is timed)
     // if (userTextArray.length === typingPracTextArray.length) {
@@ -35,7 +38,15 @@ function TypingPracticeField({onFirstKeyPress, preventInput}) {
       console.log('bs ' + counter)
       setCounter(counter - 1)
       // setUserTextArray(userTextArray.pop())
-      setUserTextArray(userTextArray.slice(0,-1))
+      updatedUserArray = userTextArray.slice(0,-1)
+      setUserTextArray(updatedUserArray)
+
+      // makes array of every instance of a space in the userTextArray and sets wordsTyped to the length
+      setWordsTyped(updatedUserArray.filter(spaces => spaces.props.children === ' ').length)
+      // makes array of every instance of correctly typed characters and sets charTypedCorrectly to the length
+      setCharTypedCorrectly(updatedUserArray.filter(spaces => spaces.props.className === 'correctInput').length)
+      // sets totalCharTyped to the number of typed characters
+      setTotalCharTyped(updatedUserArray.length)
       }
     }
     else if (isAlphNumSym(currentInputText)) {
@@ -50,12 +61,27 @@ function TypingPracticeField({onFirstKeyPress, preventInput}) {
       // add typed text as green or red span objects to userTextArray
       if (currentInputText === typingPracTextArray[counter]) {
         // setUserTextArray([...userTextArray, <span className='green' key={'userTextArray' + counter}>{currentInputText}</span>])
-        setUserTextArray([...userTextArray, <span className='correctInput' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>])
+        updatedUserArray = [...userTextArray, <span className='correctInput' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>]
+        // console.log(updatedUserArray)
+        setUserTextArray(updatedUserArray)
       }
       else {
         // setUserTextArray([...userTextArray, <span className="red" key={'userTextArray' + counter}>{currentInputText}</span>])
-        setUserTextArray([...userTextArray, <span className='incorrectInput' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>])
+        updatedUserArray = [...userTextArray, <span className='incorrectInput' key={'userTextArray' + counter}>{typingPracTextArray[counter]}</span>]
+        setUserTextArray(updatedUserArray)
       }
+      
+      // updatedUserArrayExposed = [...userTextArrayExposed, currentInputText]
+      // setUserTextArrayExposed(updatedUserArrayExposed)
+
+      // makes array of every instance of a space in the userTextArray and sets wordsTyped to the length
+      // setWordsTyped(userTextArray.filter(spaces => spaces.props.children === ' ').length)
+      setWordsTyped(updatedUserArray.filter(spaces => spaces.props.children === ' ').length)
+      // makes array of every instance of correctly typed characters and sets charTypedCorrectly to the length
+      setCharTypedCorrectly(updatedUserArray.filter(spaces => spaces.props.className === 'correctInput').length)
+      // sets totalCharTyped to the number of typed characters
+      setTotalCharTyped(updatedUserArray.length)
+      
 
       // increment
       setCounter(counter + 1)
@@ -63,6 +89,8 @@ function TypingPracticeField({onFirstKeyPress, preventInput}) {
     else {
       console.log('something went wrong: in TypingPracticeField')
     }
+
+    
   }
   
   // A variable used to hold a new array made of the array of user typed text (colored accordingly) and the rest of the typing practice text

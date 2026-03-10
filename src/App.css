@@ -5,12 +5,19 @@
   text-align: center;
 }
 
+/* some hex codes for colors i like */
+/* #ff808017 */
+/* #b10000 */
+/* #00ff000a */
+/* #0f0 */
+
 .timer {
   background-color: #404040;
   color: aqua;
   width: 10%;
   min-width: 50px;
   margin: 0 auto;
+  margin-bottom: 5%;
   border-color: #00ff00;
   /* add code and styling to animate a flash/glow and change border color to red on test end */
   border-style: solid;
@@ -19,11 +26,33 @@
 }
 
 .typingStats {
-  background-color: #404040;
+  background-color: #363636;
   color:antiquewhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:600;
+  line-height: 2.2;
+  width: 80%;
+  min-width: 100px;
+  margin: 0 auto;
+  margin-top: 5%;
   border-color: black;
   border-style: solid;
   border-width: 2px;
+  border-radius: 5px;
+}
+
+.avgWpmStat {
+  color: #00dd00;
+  font-weight: 700;
+  /* font-size: 180%; */
+  margin: 1%;
+}
+
+.accuracyStat {
+  color: #00dd00;
+  font-weight: 700;
+  /* font-size: 180%; */
+  margin: 1%;
 }
 
 .typingPracField {
@@ -31,6 +60,10 @@
   letter-spacing: 0.1em;
   text-align: center;
   white-space: pre-wrap;
+  border-color: grey;
+  border-style: inset;
+  border-width: 3.8px;
+  border-radius: 15px;
 }
 
 /* Remove .red & .green classes and insert two classes that change a span element content in following ways: color of text (red or green), adds green or red rectangle behind element, & later an animation that displays the incorrectly typed character shaking and then disappearing. ...(also later consider remaking in a react jsx module for storing these styles.. i believe its called css-in-js using a library like styled-components) */
