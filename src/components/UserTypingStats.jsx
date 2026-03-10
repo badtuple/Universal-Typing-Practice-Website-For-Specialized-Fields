@@ -24,7 +24,6 @@ function UserTypingStats ({timeElapsed, wordsTyped, charTypedCorrectly, totalCha
         // console.log('timeElapsed: ' + timeElapsed + '    wordsTyped: ' + wordsTyped + '    charTypedCorrectly: ' + charTypedCorrectly + '    totalCharTyped: ' + totalCharTyped)
         let avgWpmStat = <span className='avgWpmStat'>{calcAvgWpm()}</span>
         let accuracyStat = <span className='accuracyStat'>{calcAccuracy()}</span>
-        // console.log(avgWpmStat)
 
         return <>
             <div>Average WPM: {avgWpmStat}</div>

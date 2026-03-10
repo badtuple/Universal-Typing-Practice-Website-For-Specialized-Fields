@@ -12,82 +12,93 @@
 /* #0f0 */
 
 .timer {
-  background-color: #404040;
-  color: aqua;
   width: 10%;
   min-width: 50px;
   margin: 0 auto;
   margin-bottom: 5%;
+  color: aqua;
+  background-color: #404040;
   border-color: #00ff00;
-  /* add code and styling to animate a flash/glow and change border color to red on test end */
-  border-style: solid;
-  border-width: 2px;
   border-radius: 10px;
-}
-
-.typingStats {
-  background-color: #363636;
-  color:antiquewhite;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight:600;
-  line-height: 2.2;
-  width: 80%;
-  min-width: 100px;
-  margin: 0 auto;
-  margin-top: 5%;
-  border-color: black;
   border-style: solid;
   border-width: 2px;
-  border-radius: 5px;
+  /* add code and styling to animate a flash/glow and change border color to red on test end */
 }
 
-.avgWpmStat {
-  color: #00dd00;
-  font-weight: 700;
-  /* font-size: 180%; */
-  margin: 1%;
-}
-
-.accuracyStat {
-  color: #00dd00;
-  font-weight: 700;
-  /* font-size: 180%; */
-  margin: 1%;
-}
 
 .typingPracField {
-  font-family: "Space Mono", "JetBrains Mono", "Roboto Mono", monospace, sans-serif;
   letter-spacing: 0.1em;
+  font-family: "Space Mono", "JetBrains Mono", "Roboto Mono", monospace, sans-serif;
   text-align: center;
-  white-space: pre-wrap;
   border-color: grey;
+  border-radius: 15px;
   border-style: inset;
   border-width: 3.8px;
-  border-radius: 15px;
+  white-space: pre-wrap;
 }
 
-/* Remove .red & .green classes and insert two classes that change a span element content in following ways: color of text (red or green), adds green or red rectangle behind element, & later an animation that displays the incorrectly typed character shaking and then disappearing. ...(also later consider remaking in a react jsx module for storing these styles.. i believe its called css-in-js using a library like styled-components) */
-
-.correctInput {
-  color: #006600;
-  border-radius: 15%;
-  background-color: #00ff00;
-  margin: 0.08em;
-}
-
-.incorrectInput {
-  color: #990000;
-  border-radius: 15%;
-  background-color: #ff8080;
-  margin: 0.08em;
-}
+/* Add animation that displays the incorrectly typed character shaking and then disappearing to the two below classes. ...(also later consider remaking in a react jsx module for storing these styles.. i believe its called css-in-js using a library like styled-components) */
 
 .practiceText {
   margin: 0.08em;
 }
 
+.correctInput {
+  margin: 0.08em;
+  color: #006600;
+  background-color: #00ff00;
+  border-radius: 15%;
+}
 
-.logo {
+.incorrectInput {
+  margin: 0.08em;
+  color: #990000;
+  background-color: #ff8080;
+  border-radius: 15%;
+}
+
+/* .nextInput {
+
+} */
+
+
+.typingStats {
+  width: 80%;
+  min-width: 100px;
+  margin: 0 auto;
+  margin-top: 5%;
+  color:antiquewhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:600;
+  line-height: 2.2;
+  background-color: #363636;
+  border-color: black;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.avgWpmStat {
+  margin: 1%;
+  color: #00dd00;
+  /* font-size: 180%; */
+  font-weight: 700;
+}
+
+.accuracyStat {
+  margin: 1%;
+  color: #00dd00;
+  /* font-size: 180%; */
+  font-weight: 700;
+}
+
+
+
+
+
+
+
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -98,27 +109,27 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
+} */
 
-@keyframes logo-spin {
+/* @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
+} */
 
-.card {
+/* .card {
   padding: 2em;
-}
+} */
 
-.read-the-docs {
+/* .read-the-docs {
   color: #888;
-}
+} */

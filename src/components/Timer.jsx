@@ -5,12 +5,10 @@ import '../App.css'
 
 function Timer({startTimer, onTimerExpire, setTimeElapsed}) {
     // below variable is the length of time the user wants the typing practice session to last.. hardcoded for now: 1 minute or 60,000 ms
-    // we can but timerLength & timeRemaining state in parent component
+    // we can put timerLength & timeRemaining state in parent component
     const timerLength = 60;
     
     const [timeRemaining, setTimeRemaining] = useState(timerLength);
-    // try using useReducer.. or maybe not?
-    // const [counter, incrementCounter] = useReducer((i) => i + 1, 0);
 
     useEffect( () => {
         const intervalId = setInterval( () => {
@@ -24,8 +22,7 @@ function Timer({startTimer, onTimerExpire, setTimeElapsed}) {
                     // console.log(timeElapsed)
                     setTimeElapsed(timerLength - timeRemaining);
                 }
-                // else if (remainingTime == 0) {
-                    else if (timeRemaining === 0) {
+                else if (timeRemaining === 0) {
                     console.log('Test concluded')
                     console.log(timeRemaining)
                     onTimerExpire()
@@ -47,10 +44,6 @@ function Timer({startTimer, onTimerExpire, setTimeElapsed}) {
     // let timeElapsed = function() {
     //     return timerLength - timeRemaining;
     // }
-    
-    let getTimeRemaining = function() {
-        // not useable until state management code of Timer & TypingPracticeField is written in App
-    }
 
     let pauseTimer = function() {
         // not useable until state management code of Timer & TypingPracticeField is written in App
@@ -69,7 +62,6 @@ function Timer({startTimer, onTimerExpire, setTimeElapsed}) {
 
     return (
     <>
-      {/* <p className='typingPracField'  tabIndex='1' onKeyDown={onType} ref={autoFocusElement}>{displayTextArray}</p> */}
       {/* {console.log('timer component mounted')} */}
       <div className='timer' tabIndex='1'>{displayTimer()}</div>
     </>

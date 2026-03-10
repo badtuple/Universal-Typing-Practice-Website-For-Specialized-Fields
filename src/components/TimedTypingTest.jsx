@@ -6,13 +6,12 @@ import UserTypingStats from './UserTypingStats.jsx'
 
 // This component will manage the shared states of all the other timed typing test components and display them
 function TimedTypingTest() {
-    // looks like we may have to insert code for managing state between components here (TypingPracticeField may need to emit an event for Timer to accept so it knows when to start the count down)
 
     // 2 states for: whether user has started typing & whether timer has expired
     const [startTimer, setStartTimer] = useState(false);
     const [timerExpired, setTimerExpired] = useState(false);
 
-    // insert states that need to be shared between sibling components here.. the states will be managed by TimedTypingTest and passed into the child components that need them
+    // 4 states for: calculating the user's typing stats (ie for now wpm typing speed and typing accuracy)
     const [timeElapsed, setTimeElapsed] = useState(0);
     const [wordsTyped, setWordsTyped] = useState(0);
     const [charTypedCorrectly, setCharTypedCorrectly] = useState(0);
@@ -22,12 +21,11 @@ function TimedTypingTest() {
         <>
             <h1>THE "TimedTypingTest" COMPONENT BEGINS HERE</h1>
 
-            {/* Timer's props are 1 input: startTimer bool to determine when to start countdown & 1 output: when countdown reaches 0 function is called outside component to set timerExpired bool to true && */}
+            {/* Timer's props are 1 input state: startTimer bool to determine when to start countdown & 1 output function: when countdown reaches 0 function is called outside component to set timerExpired bool to true && 1 more output function: which updates the time elapsed state every second*/}
             <Timer startTimer={startTimer} onTimerExpire={() => setTimerExpired(true)} setTimeElapsed={setTimeElapsed} />
-            {/* TypingPracticeField's props are 1 output: on user's first input set startTimer to true & 1 input: timerExpired bool to prevent user input if the timer has expired && */}
+            {/* TypingPracticeField's props are 1 output function: on user's first input set startTimer to true & 1 input: timerExpired bool to prevent user input if the timer has expired && 3 more output functions: one to set the number of words the user has typed, one to set number of characters typed correctly, and one to set the total number of characters typed state variables */}
             <TypingPracticeField onFirstKeyPress={() => setStartTimer(true)} preventInput={timerExpired} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} />
-            {/* should i modularize above component into more components? */}
-
+            {/* UserTypingStats' props are 4 input states: timeElapsed and wordsTyped used to determine the user's avg wpm and charTypedCorrectly and totalCharTyped to determine the user's accuracy percentage */}
             <UserTypingStats timeElapsed={timeElapsed} wordsTyped={wordsTyped} charTypedCorrectly={charTypedCorrectly} totalCharTyped={totalCharTyped} />
 
             {/* {console.log(`timeElapsed: ${timeElapsed}    wordsTyped: ${wordsTyped}    charTypedCorrectly: ${charTypedCorrectly}    totalCharTyped: ${totalCharTyped}`)} */}
