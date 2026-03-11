@@ -21,7 +21,7 @@ function TimedTypingTest() {
         <>
             <h1>THE "TimedTypingTest" COMPONENT BEGINS HERE</h1>
 
-            {/* Timer's props are 1 input state: startTimer bool to determine when to start countdown & 1 output function: when countdown reaches 0 function is called outside component to set timerExpired bool to true && 1 more output function: which updates the time elapsed state every second*/}
+            {/* Timer's props are 1 input state: startTimer bool to determine when to start countdown & 1 output function: when countdown reaches 0 function is called outside component to set timerExpired bool to true && 1 more output function: which updates the time elapsed state every second */}
             <Timer startTimer={startTimer} onTimerExpire={() => setTimerExpired(true)} setTimeElapsed={setTimeElapsed} />
             {/* TypingPracticeField's props are 1 output function: on user's first input set startTimer to true & 1 input: timerExpired bool to prevent user input if the timer has expired && 3 more output functions: one to set the number of words the user has typed, one to set number of characters typed correctly, and one to set the total number of characters typed state variables */}
             <TypingPracticeField onFirstKeyPress={() => setStartTimer(true)} preventInput={timerExpired} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} />
