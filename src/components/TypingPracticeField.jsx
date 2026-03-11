@@ -24,6 +24,9 @@ function TypingPracticeField({onFirstKeyPress, preventInput, setWordsTyped, setC
     let updatedUserArray
     // let updatedUserArrayExposed
 
+    // prevents ' & / from opening quick find links search box in firefox while test is still running
+    !preventInput && (currentInputText === "'" || currentInputText === "/") ? currentInputEvent.preventDefault() : null;
+
     // get rid of the first conditional (not needed if typing test is timed)
     // if (userTextArray.length === typingPracTextArray.length) {
     //   console.log('practice run is complete')
@@ -102,7 +105,7 @@ function TypingPracticeField({onFirstKeyPress, preventInput, setWordsTyped, setC
 
   return (
     <div>
-      <p className='typingPracField'  tabIndex='2' onKeyDown={onType} ref={autoFocusElement}>{displayTextArray}</p>
+      <p className='typingPracField'  tabIndex='2' onKeyDown={onType} onBlur={() => preventInput ? null : autoFocusElement.current.focus()} ref={autoFocusElement}>{displayTextArray}</p>
     </div>
   )
 }
