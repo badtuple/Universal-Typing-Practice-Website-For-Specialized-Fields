@@ -11,6 +11,12 @@
 /* #00ff000a */
 /* #0f0 */
 
+
+.testTimerRow {
+  
+}
+
+
 .timer {
   width: 10%;
   min-width: 50px;
@@ -34,6 +40,11 @@
 @keyframes testEnding {
   from { box-shadow: 0 0 0 2px #00ff00 inset; }
   to { box-shadow: 0 0 0 4px red inset; color: red; }
+}
+
+
+.restartTestButton {
+  
 }
 
 

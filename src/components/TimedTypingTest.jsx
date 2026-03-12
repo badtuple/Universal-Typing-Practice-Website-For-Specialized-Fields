@@ -1,6 +1,7 @@
 import {useState} from 'react';
 
 import Timer from './Timer.jsx';
+import RestartTestButton from './RestartTestButton.jsx';
 import TypingPracticeField from './TypingPracticeField.jsx';
 import UserTypingStats from './UserTypingStats.jsx';
 import SeeResultsButton from './SeeResultsButton.jsx';
@@ -17,15 +18,21 @@ function TimedTypingTest() {
     const [wordsTyped, setWordsTyped] = useState(0);
     const [charTypedCorrectly, setCharTypedCorrectly] = useState(0);
     const [totalCharTyped, setTotalCharTyped] = useState(0);
+
+    const [testRestarted, setTestRestarted] = useState(false);
     
     return (
         <>
             <h1>THE "TimedTypingTest" COMPONENT BEGINS HERE</h1>
 
-            {/* Timer's props are 1 input state: startTimer bool to determine when to start countdown & 1 output function: when countdown reaches 0 function is called outside component to set timerExpired bool to true && 1 more output function: which updates the time elapsed state every second */}
-            <Timer startTimer={startTimer} onTimerExpire={() => setTimerExpired(true)} setTimeElapsed={setTimeElapsed} />
-            {/* TypingPracticeField's props are 1 output function: on user's first input set startTimer to true & 1 input: timerExpired bool to prevent user input if the timer has expired && 3 more output functions: one to set the number of words the user has typed, one to set number of characters typed correctly, and one to set the total number of characters typed state variables */}
-            <TypingPracticeField onFirstKeyPress={() => setStartTimer(true)} preventInput={timerExpired} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} />
+            <div className='testTimerRow'>
+                {/* Timer's props are 1 input state: startTimer bool to determine when to start countdown & 1 output function: when countdown reaches 0 function is called outside component to set timerExpired bool to true && 1 more output function: which updates the time elapsed state every second && 1 input state: testRestarted bool used to reset all of the components state variables */}
+                <Timer startTimer={startTimer} onTimerExpire={() => setTimerExpired(true)} setTimeElapsed={setTimeElapsed} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
+                {/* RestartTestButton's props are all the output functions: all the output functions which are used in the component to reset all states to their starting values when the button is clicked */}
+                <RestartTestButton setStartTimer={setStartTimer} setTimerExpired={setTimerExpired} setTimeElapsed={setTimeElapsed} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} setTestRestarted={setTestRestarted} />
+            </div>
+            {/* TypingPracticeField's props are 1 output function: on user's first input set startTimer to true & 1 input: timerExpired bool to prevent user input if the timer has expired && 3 more output functions: one to set the number of words the user has typed, one to set number of characters typed correctly, and one to set the total number of characters typed state variables && 1 input state: testRestarted bool used to reset all of the components state variables */}
+            <TypingPracticeField setStartTimer={setStartTimer} preventInput={timerExpired} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
             <div className='resultsRow'>
                 {/* UserTypingStats' props are 4 input states: timeElapsed and wordsTyped used to determine the user's avg wpm and charTypedCorrectly and totalCharTyped to determine the user's accuracy percentage && 1 input state: timerExpired used to determine when to resize component */}
                 <UserTypingStats timeElapsed={timeElapsed} wordsTyped={wordsTyped} charTypedCorrectly={charTypedCorrectly} totalCharTyped={totalCharTyped} timerExpired={timerExpired} />

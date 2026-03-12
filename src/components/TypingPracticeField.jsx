@@ -9,13 +9,35 @@ import Timer from './Timer.jsx';
 import '../App.css';
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
-function TypingPracticeField({onFirstKeyPress, preventInput, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped}) {
+function TypingPracticeField({setStartTimer, preventInput, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted}) {
   const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
   const typingPracTextArray = typingPracText.split('');
   const [counter, setCounter] = useState(0);
   const [userTextArray, setUserTextArray] = useState([]);
   // const [userTextArrayExposed, setUserTextArrayExposed] = useState([]);
   const [isFirstKeyPress, setIsFirstKeyPress] = useState(true)
+
+  // checks if test has been restarted and if so resets all the states in TypingPracticeField
+  useEffect( () => {
+    if (testRestarted) {
+      setCounter(0);
+      setUserTextArray([]);
+      setIsFirstKeyPress(true);
+      setTestRestarted(false);
+      autoFocusElement.current.focus();
+    }
+  }, [testRestarted]);
+
+  
+  // A useEffect/useRef block of code to autofocus the typing field
+  const autoFocusElement = useRef(null);
+
+  useEffect(() => {
+      autoFocusElement.current.focus();
+  }, [testRestarted]);
+
+  // An alternative to the above ..(i believe this can be moved to an export module)
+  // const autoFocus = (element) => element?.focus();
 
 
   // Function that checks currently typed char and: if preventInput is true stop receiving input from user and make see results button visible and "exit" (ie will later add code finalize results, unfocus typing practice field component?, & display see results button); else if backspace then decrement counter by 1, remove last item from userTextArray, and update UserTypingStats state variables; else if input is alphanumeric or a symbol, then check if it is first input, check if user's currently typed char is same value as current index of typePracTextArray and if so add current letter to end of userTextArray but as green and if not add it as red, and then update UserTypingStats state variables. ...(!!! IM REALIZING THIS FUNCTION DOCUMENTATION IS REDUNDANT BC IT JUST REHASHES ONTYPE'S CODE RATHER THAN STATING WHAT IT DOES/IS RESPONSIBLE FOR.. CHANGE LATER.)
@@ -55,7 +77,8 @@ function TypingPracticeField({onFirstKeyPress, preventInput, setWordsTyped, setC
       if (isFirstKeyPress) {
         console.log('code that runs once!')
         setIsFirstKeyPress(false)
-        onFirstKeyPress()
+        setStartTimer(true)
+        // onFirstKeyPress()
       }
       
       // add typed text as green or red span objects to userTextArray
@@ -92,16 +115,6 @@ function TypingPracticeField({onFirstKeyPress, preventInput, setWordsTyped, setC
   
   // A variable used to hold a new array made of the array of user typed text (colored accordingly) and the rest of the typing practice text
   const displayTextArray = userTextArray.concat(<span className='nextInput'>{typingPracTextArray[userTextArray.length]}</span>).concat(typingPracTextArray.slice(userTextArray.length + 1).map((c) => <span className='practiceText'>{c}</span>))  // note: figure out how to add key prop to avoid that "every child must have unique key" error
-
-  // A useEffect/useRef block of code to autofocus the typing field
-  const autoFocusElement = useRef(null);
-
-  useEffect(() => {
-      autoFocusElement.current.focus();
-  }, []);
-
-  // An alternative to the above ..(i believe this can be moved to an export module)
-  // const autoFocus = (element) => element?.focus();
 
   return (
     <>
