@@ -85,11 +85,24 @@
 }
 
 
-.typingStats {
-  width: 80%;
-  min-width: 100px;
+.resultsRow {
+  display: flex;
   margin: 0 auto;
   margin-top: 5%;
+  justify-content: center;
+  gap: 10%;
+  align-items: center;
+}
+/* .resultsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  margin-top: 5%;
+  gap: 50px;
+} */
+
+
+.typingStats {
   color:antiquewhite;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight:600;
@@ -99,6 +112,23 @@
   border-radius: 5px;
   border-style: solid;
   border-width: 2px;
+}
+
+.typingStatsTestRunning {
+  width: 80%;
+  min-width: 100px;
+  margin: 0 auto;
+}
+
+.typingStatsTestEnded {
+  width: auto;
+  white-space: nowrap;
+  padding-inline: 5%;
+  padding-block: 1%;
+  border-radius: 15px;
+  /* padding-left: 30px; */
+  /* padding-right: 30px; */
+  /* justify-self: end; */
 }
 
 .avgWpmStat {
@@ -113,6 +143,22 @@
   color: #00dd00;
   /* font-size: 180%; */
   font-weight: 700;
+}
+
+
+.resultsButton {
+  /* margin: 0 auto; */
+  /* justify-self: start; */
+  height: fit-content;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:600;
+  line-height: 2.2;
+  background-color: #00dd00;
+  border-color: #009900;
+  border-radius: 15px;
+  border-style: outset;
+  border-width: 5px;
 }
 
 

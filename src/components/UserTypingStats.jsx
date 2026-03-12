@@ -3,7 +3,7 @@
 import '../App.css';
 
 
-function UserTypingStats ({timeElapsed, wordsTyped, charTypedCorrectly, totalCharTyped}) {
+function UserTypingStats ({timeElapsed, wordsTyped, charTypedCorrectly, totalCharTyped, timerExpired}) {
     // const [avgWpm, setAvgWpm] = useState(0);
     // const [accuracy, setAccuracy] = useState(0);
 
@@ -27,13 +27,13 @@ function UserTypingStats ({timeElapsed, wordsTyped, charTypedCorrectly, totalCha
 
         return <>
             <div>Average WPM: {avgWpmStat}</div>
-            <div>Accuracy: {accuracyStat}</div>
+            <div>Accuracy: {accuracyStat}%</div>
         </>;
     }
 
     return (
         <>
-            <div className='typingStats' tabIndex='3'>{displayStats()}</div>
+            <div className={`typingStats ${ timerExpired ? 'typingStatsTestEnded' : 'typingStatsTestRunning' }`} tabIndex='3'>{displayStats()}</div>
         </>
     )
 }
