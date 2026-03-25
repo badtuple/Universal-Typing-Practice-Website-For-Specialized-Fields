@@ -1,5 +1,6 @@
 // import { useState, useEffect } from 'react';
 
+import { MdOutlineRestartAlt } from "react-icons/md";
 
 import '../App.css';
 
@@ -19,7 +20,7 @@ function RestartTestButton({setStartTimer, setTimerExpired,setTimeElapsed, setWo
 
     return (
         <>
-            <button className='restartTestButton' onClick={resetTest}>Restart</button>
+            <button className='restartTestButton' onClick={resetTest}><MdOutlineRestartAlt /></button>
         </>
     )
 }

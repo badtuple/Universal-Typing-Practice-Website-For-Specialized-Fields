@@ -13,15 +13,21 @@
 
 
 .testTimerRow {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+  /* margin-top: 5%; */
+  margin-bottom: 5%;
+  /* gap: 1%; */
+  /* position: relative; */
 }
 
 
 .timer {
   width: 10%;
   min-width: 50px;
-  margin: 0 auto;
-  margin-bottom: 5%;
+  position: absolute;
   padding-block: 0.2%;
   color: aqua;
   background-color: #404040;
@@ -44,7 +50,20 @@
 
 
 .restartTestButton {
-  
+  align-self: stretch;
+  position: relative;
+  left: 9%;
+  height: 100%;
+  padding-inline: 1%;
+  padding-top: 0.4%;
+  padding-bottom: 0;
+  font-size: 1.5em;
+  color: #00ff00;
+  background-color: #383838;
+  border-color: #606060;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
 }
 
 
