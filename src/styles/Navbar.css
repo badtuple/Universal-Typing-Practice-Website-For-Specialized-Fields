@@ -1,0 +1,28 @@
+.navbar {
+  width: 100%;
+  background-color: #404040;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000000;
+}
+
+.active {
+  background-color: #00aa00;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
