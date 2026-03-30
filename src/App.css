@@ -1,8 +1,14 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  width: 100vw;
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
   text-align: center;
+}
+
+.pageContent {
+  /* max-width: 1280px; */
+  padding-inline: 4rem;
 }
 
 /* some hex codes for colors i like */
