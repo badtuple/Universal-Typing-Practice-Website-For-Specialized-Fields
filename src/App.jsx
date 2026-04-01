@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
-import HomePage from './pages/HomePage.jsx';
-import BasicTypingTestsPage from './pages/BasicTypingTestsPage.jsx'
-import LeaderboardsPage from './pages/LeaderboardsPage.jsx'
-import AboutPage from './pages/AboutPage.jsx'
-import ContactPage from './pages/ContactPage.jsx'
-import Navbar from './components/common/Navbar.jsx';
+import HomePage from '/src/pages/HomePage.jsx';
+import BasicTypingTestsPage from '/src/pages/BasicTypingTestsPage.jsx'
+import LeaderboardsPage from '/src/pages/LeaderboardsPage.jsx'
+import AboutPage from '/src/pages/AboutPage.jsx'
+import ContactPage from '/src/pages/ContactPage.jsx'
+import Navbar from '/src/components/common/Navbar.jsx';
 
 import './App.css'
 

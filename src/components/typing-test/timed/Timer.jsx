@@ -3,10 +3,10 @@ import { useState, useEffect, useReducer } from 'react';
 import '../../../App.css';
 
 
-function Timer({startTimer, onTimerExpire, setTimeElapsed, testRestarted, setTestRestarted}) {
+function Timer({testStarted, setTimerExpired, testRestarted, setTestRestarted}) {
     // below variable is the length of time the user wants the typing practice session to last.. hardcoded for now: 1 minute or 60,000 ms
     // we can put timerLength & timeRemaining state in parent component
-    const timerLength = 3;
+    const timerLength = 60;
     
     const [timeRemaining, setTimeRemaining] = useState(timerLength);
 
@@ -19,32 +19,30 @@ function Timer({startTimer, onTimerExpire, setTimeElapsed, testRestarted, setTes
 
     useEffect( () => {
         const intervalId = setInterval( () => {
-            // console.log(startTimer)
+            // console.log(testStarted)
             // console.log(counter)
-            if (startTimer && timeRemaining >= 0) {
+            if (testStarted && timeRemaining >= 0) {
                 if (0 < timeRemaining && timeRemaining <= timerLength) {
                     setTimeRemaining(timeRemaining - 1);
                     // console.log('timer updated')
                     // console.log(timeRemaining)
-                    // console.log(timeElapsed)
-                    setTimeElapsed(timerLength - timeRemaining);
                 }
                 else if (timeRemaining === 0) {
                     console.log('Test concluded')
                     console.log(timeRemaining)
-                    onTimerExpire()
+                    setTimerExpired(true)
                 }
                 else {
                     console.log('something went wrong: in Timer')
                 }
             }
             else {
-                console.log('yep its here')
+                // console.log('yep its here')
             }
 
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [timeRemaining, startTimer]);
+    }, [timeRemaining, testStarted]);
     
 
     // let startTimer = function() {
@@ -73,7 +71,7 @@ function Timer({startTimer, onTimerExpire, setTimeElapsed, testRestarted, setTes
     return (
         <>
             {/* {console.log('timer component mounted')} */}
-            <div className={`timer ${ startTimer && timeRemaining <= 3 ? 'testEnding' : '' }`} tabIndex='1'>{displayTimer()}</div>
+            <div className={`timer ${ testStarted && timeRemaining <= 3 ? 'testEnding' : '' }`} tabIndex='1'>{displayTimer()}</div>
         </>
     )
 }

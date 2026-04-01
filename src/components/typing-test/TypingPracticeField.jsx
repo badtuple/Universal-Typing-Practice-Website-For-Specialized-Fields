@@ -9,7 +9,7 @@ import Timer from './timed/Timer.jsx';
 import '../../App.css';
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
-function TypingPracticeField({setStartTimer, preventInput, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted}) {
+function TypingPracticeField({setTestStarted, preventInput, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted}) {
   const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
   const typingPracTextArray = typingPracText.split('');
   const [counter, setCounter] = useState(0);
@@ -77,7 +77,7 @@ function TypingPracticeField({setStartTimer, preventInput, setWordsTyped, setCha
       if (isFirstKeyPress) {
         console.log('code that runs once!')
         setIsFirstKeyPress(false)
-        setStartTimer(true)
+        setTestStarted(true)
         // onFirstKeyPress()
       }
       
@@ -107,7 +107,7 @@ function TypingPracticeField({setStartTimer, preventInput, setWordsTyped, setCha
       setCounter(counter + 1)
     }
     else {
-      console.log('something went wrong: in TypingPracticeField')
+      // console.log('something went wrong: in TypingPracticeField')
     }
 
     

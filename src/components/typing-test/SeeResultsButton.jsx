@@ -3,7 +3,7 @@
 import '../../App.css';
 
 
-function SeeResultsButton({timerExpired}) {
+function SeeResultsButton({timerExpired, wordCountReached}) {
 
 
     const showResults = function() {
@@ -11,7 +11,7 @@ function SeeResultsButton({timerExpired}) {
     }
 
     const displayButton = function() {
-        if (timerExpired) {
+        if (timerExpired || wordCountReached) {
             return <button className='resultsButton' tabIndex='4'>See Results</button>
         }
         else {

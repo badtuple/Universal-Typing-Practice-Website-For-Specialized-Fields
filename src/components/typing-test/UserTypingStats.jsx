@@ -1,11 +1,33 @@
-// import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
 import '../../App.css';
 
 
-function UserTypingStats ({timeElapsed, wordsTyped, charTypedCorrectly, totalCharTyped, timerExpired}) {
+function UserTypingStats ({testStarted, timeElapsed, setTimeElapsed, wordsTyped, charTypedCorrectly, totalCharTyped, timerExpired, wordCountReached}) {
     // const [avgWpm, setAvgWpm] = useState(0);
     // const [accuracy, setAccuracy] = useState(0);
+    // const [timeElapsed, setTimeElapsed] = useState(0);
+
+
+    // timer used exclusively for determining typing speed
+    useEffect( () => {
+        const intervalId = setInterval( () => {
+            // console.log(startTimer)
+            // console.log(counter)
+            if (testStarted && !timerExpired && !wordCountReached) {
+                console.log(timeElapsed)
+                setTimeElapsed(timeElapsed + 1)
+                console.log(timeElapsed)
+            }
+            else {
+                console.log('test not started or is ended.. wpm currently static')
+            }
+
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [timeElapsed, testStarted]);
+
+
 
     const calcAvgWpm = function() {
         if (timeElapsed === 0 || wordsTyped === 0) return 0;
@@ -33,7 +55,7 @@ function UserTypingStats ({timeElapsed, wordsTyped, charTypedCorrectly, totalCha
 
     return (
         <>
-            <div className={`typingStats ${ timerExpired ? 'typingStatsTestEnded' : 'typingStatsTestRunning' }`} tabIndex='3'>{displayStats()}</div>
+            <div className={`typingStats ${ timerExpired || wordCountReached ? 'typingStatsTestEnded' : 'typingStatsTestRunning' }`} tabIndex='3'>{displayStats()}</div>
         </>
     )
 }

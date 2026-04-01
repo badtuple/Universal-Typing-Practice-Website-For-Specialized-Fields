@@ -74,6 +74,8 @@
 
 
 .typingPracField {
+  margin-inline: 8rem;
+  padding: 1rem;
   letter-spacing: 0.1em;
   font-family: "Space Mono", "JetBrains Mono", "Roboto Mono", monospace, sans-serif;
   text-align: center;

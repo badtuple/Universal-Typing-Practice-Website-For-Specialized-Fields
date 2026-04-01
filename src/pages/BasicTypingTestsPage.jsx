@@ -1,6 +1,6 @@
 // import {useState, useEffect} from 'react';
 
-import TimedTypingTest from '../components/TimedTypingTest';
+import TimedTypingTest from '../components/TypingTest';
 
 // import '../App.css';
 
