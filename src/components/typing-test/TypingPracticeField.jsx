@@ -9,7 +9,7 @@ import Timer from './timed/Timer.jsx';
 import '../../App.css';
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
-function TypingPracticeField({setTestStarted, timerExpired, wordCountReached, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted}) {
+function TypingPracticeField({setTestStarted, timerExpired, wordCountReached, setWordCountReached, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted}) {
   const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
   const typingPracTextArray = typingPracText.split('');
   const [counter, setCounter] = useState(0);
@@ -104,6 +104,12 @@ function TypingPracticeField({setTestStarted, timerExpired, wordCountReached, se
       // sets totalCharTyped to the number of typed characters
       setTotalCharTyped(updatedUserArray.length)
       
+
+      // checks if length of updatedUserArray is same as typingPracTextArray length and if so sets wordCountReached to true
+      if (updatedUserArray.length === typingPracTextArray.length) {
+        setWordCountReached(true)
+      }
+
 
       // increment
       setCounter(counter + 1)

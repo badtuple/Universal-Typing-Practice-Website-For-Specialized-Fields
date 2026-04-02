@@ -30,6 +30,17 @@
 }
 
 
+.wordCounter {
+  width: 10%;
+  /* min-width: 100px; */
+  position: absolute;
+  padding-block: 0.2%;
+  color: aqua;
+  background-color: #404040;
+  box-shadow: 0 0 0 2px #00ff00 inset;
+  border-radius: 10px;
+}
+
 .timer {
   width: 10%;
   min-width: 50px;
