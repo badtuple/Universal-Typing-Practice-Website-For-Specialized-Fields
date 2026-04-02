@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import WordCounter from './typing-test/word-count-based/WordCounter.jsx';
 import Timer from './typing-test/timed/Timer.jsx';
 import RestartTestButton from './typing-test/RestartTestButton.jsx';
 import TypingPracticeField from './typing-test/TypingPracticeField.jsx';
@@ -7,7 +8,7 @@ import UserTypingStats from './typing-test/UserTypingStats.jsx';
 import SeeResultsButton from './typing-test/SeeResultsButton.jsx';
 
 // This component will manage the shared states of all the other timed typing test components and display them
-function TypingTest() {
+function TypingTest({typingTestChoice}) {
 
     // 3 states for: whether user has started typing & whether timer has expired or word count is reached
     // const [startTimer, setStartTimer] = useState(false);
@@ -16,22 +17,46 @@ function TypingTest() {
     const [wordCountReached, setWordCountReached] = useState(false); // use for word count based test
 
     // 4 states for: calculating the user's typing stats (ie for now wpm typing speed and typing accuracy)
-    const [timeElapsed, setTimeElapsed] = useState(0);    // this state can be removed? after another timer is created in usertypingstats since calculating timeElapsed from timer will cause problems if word count based test is chosen.. nah its still needed in parent component for reset test button
+    const [timeElapsed, setTimeElapsed] = useState(0);    // this state can be removed? after another timer is created in UserTypingStats since calculating timeElapsed from timer will cause problems if word count based test is chosen.. nah its still needed in parent component for reset test button
     const [wordsTyped, setWordsTyped] = useState(0);
     const [charTypedCorrectly, setCharTypedCorrectly] = useState(0);
     const [totalCharTyped, setTotalCharTyped] = useState(0);
 
     const [testRestarted, setTestRestarted] = useState(false);
+
+
+    const displayTestChoiceWidgets = function() {
+        console.log(typingTestChoice)
+        if (typingTestChoice === 'timed') {
+            return (
+                // Timer's props are 1 input state: testStarted bool to determine when to start countdown & 1 output function: when countdown reaches 0 timerExpired bool is set to true && 1 input state: testRestarted bool used to reset all of the components state variables
+                <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
+            )
+        }
+        else if (typingTestChoice === 'word-count') {
+            return (
+                // WordCounter props are 
+                <WordCounter />
+            )
+        }
+        else if (typingTestChoice === 'custom') {
+            return (
+                console.log('nothing for now')
+                // insert relevant custom typing test code here
+            )
+        }
+        else {
+            console.log('something went wrong: in TypingTest')
+        }
+    }
     
     return (
         <>
 
             <div className='testTimerRow'>
+                {/* a function that checks which typing test option the user chose on BasicTypingTestsPage screen and/or widgets if custom test and displays the relevant components/widgets */}
+                {displayTestChoiceWidgets()}
 
-        {/* insert word count component that displays how many words are left in the test.. (equivalent of timer component) */}
-
-                {/* Timer's props are 1 input state: testStarted bool to determine when to start countdown & 1 output function: when countdown reaches 0 timerExpired bool is set to true && 1 input state: testRestarted bool used to reset all of the components state variables */}
-                <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
                 {/* RestartTestButton's props are all the output functions: all the output functions which are used in the component to reset all states to their starting values when the button is clicked */}
                 <RestartTestButton setTestStarted={setTestStarted} setTimerExpired={setTimerExpired} setWordCountReached={setWordCountReached} setTimeElapsed={setTimeElapsed} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} setTestRestarted={setTestRestarted} />
             </div>
