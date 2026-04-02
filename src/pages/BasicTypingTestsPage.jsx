@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-import TypingTest from '../components/TypingTest';
+import TypingTest from './TypingTest';
 
 // import '../App.css';
 

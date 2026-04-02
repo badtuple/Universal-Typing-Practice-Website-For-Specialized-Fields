@@ -1,11 +1,11 @@
 import {useState} from 'react';
 
-import WordCounter from './typing-test/word-count-based/WordCounter.jsx';
-import Timer from './typing-test/timed/Timer.jsx';
-import RestartTestButton from './typing-test/RestartTestButton.jsx';
-import TypingPracticeField from './typing-test/TypingPracticeField.jsx';
-import UserTypingStats from './typing-test/UserTypingStats.jsx';
-import SeeResultsButton from './typing-test/SeeResultsButton.jsx';
+import WordCounter from '../components/typing-test/word-count-based/WordCounter.jsx';
+import Timer from '../components/typing-test/timed/Timer.jsx';
+import RestartTestButton from '../components/typing-test/RestartTestButton.jsx';
+import TypingPracticeField from '../components/typing-test/TypingPracticeField.jsx';
+import UserTypingStats from '../components/typing-test/UserTypingStats.jsx';
+import SeeResultsButton from '../components/typing-test/SeeResultsButton.jsx';
 
 // This component will manage the shared states of all the other timed typing test components and display them
 function TypingTest({typingTestChoice}) {
