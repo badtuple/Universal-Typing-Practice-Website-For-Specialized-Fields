@@ -12,14 +12,43 @@
   padding-bottom: 1%;
 }
 
+.genericPageTitle {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  /* margin-block: 10px; */
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Bebas neue', 'Black Ops One', Bungee, 'Concert One', 'Russo One', 'Passion One', Righteous, sans-serif;
+  font-size: 2.5rem;
+}
+
+.genericSectionTitle {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  /* margin-block: 30px; */
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'lexend deca', 'lexend exa', sans-serif;
+  font-size: 1.5rem;
+}
+
 .genericTextBlock {
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-block: 30px;
+  /* margin-block: 30px; */
+  margin-block: 3%;
   text-align: center;
+  font-family: 'Varela Round', Fredoka, Nunito, Comfortaa;
+  font-size: 1.3rem;
 }
 
 .sectionDividerTop {
@@ -53,7 +82,7 @@
   padding: 1%;
   text-align: center;
 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Concert one', Verdana, Geneva, Tahoma, sans-serif;
   font-weight:800;
   /* line-height: 2; */
   border-color: #606060;
@@ -76,6 +105,11 @@
   background-color: #505050;
 }
 
+.quickLinkCardSmall {
+  width: 150px;
+  height: 75px;
+}
+
 
 /* some hex codes for colors i like */
 /* #ff808017 */
@@ -88,8 +122,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-block: 5%;
+  /* margin-block: 5%; */
+  margin-block: 2%;
+  /* margin-bottom: ; */
   gap: 10%;
+}
+
+.quickStartTestRowHome {
+  margin-block: 5%;
 }
 
 

@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
 
-import TypingTest from './TypingTest';
+import QuickLinkCard from '../components/common/QuickLinkCard';
 
-// import '../App.css';
+import '/src/App.css';
 
 
 function BasicTypingTestsPage () {
@@ -14,11 +14,23 @@ function BasicTypingTestsPage () {
     return (
         <>
             {/* <div className=''></div> */}
-            <h1>Basic Typing Tests</h1>
+            {/* <h1>Basic Typing Tests</h1> */}
+            <div className='genericPageTitle'>Basic Typing Tests</div>
 
-            {/* <TypingTest typingTestChoice={typingTestChoice} ></TypingTest> */}
-            {/* make below component a subpage.. use route from react router? */}
-            {/* <TypingTest/>  */}
+            <div className='genericSectionTitle'>Word-Count Tests</div>
+            <span className='quickStartTestRow'>
+                <QuickLinkCard className='quickLinkCardSmall' cardText={'100 WORDS'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'word-count'} />
+                <QuickLinkCard className='quickLinkCardSmall' cardText={'500 WORDS'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'word-count'} />
+                <QuickLinkCard className='quickLinkCardSmall' cardText={'1000 WORDS'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'word-count'} />
+            </span>
+
+            <div className='genericSectionTitle'>Timed Tests</div>
+            <span className='quickStartTestRow'>
+                <QuickLinkCard className='quickLinkCardSmall' cardText={'1 MINUTE'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'timed'} />
+                <QuickLinkCard className='quickLinkCardSmall' cardText={'2 MINUTES'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'timed'} />
+                <QuickLinkCard className='quickLinkCardSmall' cardText={'3 MINUTES'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'timed'} />
+            </span>
+
         </>
     )
 }

@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import '/src/App.css';
 
 
-function QuickLinkCard ({cardText, linkTo, typingTestChoice}) {
+function QuickLinkCard ({className, cardText, linkTo, typingTestChoice}) {
 
     // below not needed here. useSearchParams is only needed when 
     // const [searchParams, setSearchParams] = useSearchParams({ testChoice: typingTestChoice });
@@ -33,7 +33,7 @@ function QuickLinkCard ({cardText, linkTo, typingTestChoice}) {
                 {cardText}
             </div> */}
             
-            <div className='quickLinkCard' onClick={goToUserTestChoice}>
+            <div className={`quickLinkCard ${className || ''}`} onClick={goToUserTestChoice}>
                 {cardText}
             </div>
         </>

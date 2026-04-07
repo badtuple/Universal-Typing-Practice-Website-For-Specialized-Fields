@@ -12,7 +12,7 @@ function HomePage () {
             <div className='genericTextBlock'>Click an option below to quick start a test! Or go to the "Basic Typing Tests" tab for more test options or to create a custom test.</div>
             <hr className='sectionDividerTop'/>
             
-            <span className='quickStartTestRow'>
+            <span className='quickStartTestRow quickStartTestRowHome'>
                 <QuickLinkCard cardText={'500 WORD-COUNT BASED TEST'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'word-count'} />
                 <QuickLinkCard cardText={'1 MINUTE TIMED TEST'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'timed'} />
             </span>

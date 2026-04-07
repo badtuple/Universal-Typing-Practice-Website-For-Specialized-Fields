@@ -41,7 +41,7 @@ function TypingTest({typingTestChoice}) {
         }
         else if (searchParams.get('testChoice') === 'word-count') {
             return (
-                // WordCounter props are 
+                // WordCounter props are 1 input state and 1 output function: wordCountReached bool to determine when to stop accepting input and end test && 1 input state: wordsTyped used to display amount of words remaining in test && 1 input state and 1 output function: testRestarted bool used to reset all of the components state variables
                 <WordCounter wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} wordsTyped={wordsTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
             )
         }
