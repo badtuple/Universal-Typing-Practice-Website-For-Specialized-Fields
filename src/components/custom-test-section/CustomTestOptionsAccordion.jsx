@@ -5,9 +5,9 @@ import { IoIosArrowForward, IoIosArrowBack, IoIosArrowDown } from "react-icons/i
 import '/src/App.css';
 
 
-function CustomTestOptionsAccordion () {
+function CustomTestOptionsAccordion ({accordionSectionOpen, setAccordionSectionOpen}) {
 
-    const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
+    // const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
 
     // checks if accordion component is clicked
     const updateAccordionStatus = function () {
