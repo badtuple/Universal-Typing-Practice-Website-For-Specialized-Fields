@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 
 import QuickLinkCard from '../components/common/QuickLinkCard';
+import CustomTestOptionsAccordion from '../components/custom-test-section/CustomTestOptionsAccordion';
 
 import '/src/App.css';
 
@@ -30,6 +31,9 @@ function BasicTypingTestsPage () {
                 <QuickLinkCard className='quickLinkCardSmall' cardText={'2 MINUTES'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'timed'} />
                 <QuickLinkCard className='quickLinkCardSmall' cardText={'3 MINUTES'} linkTo={'/BasicTypingTests/TypingTest'} typingTestChoice={'timed'} />
             </span>
+
+            <div className='genericSectionTitle'>Custom Test</div>
+            <CustomTestOptionsAccordion />
 
         </>
     )
