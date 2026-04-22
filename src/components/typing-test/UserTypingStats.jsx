@@ -15,9 +15,9 @@ function UserTypingStats ({testStarted, timeElapsed, setTimeElapsed, wordsTyped,
             // console.log(startTimer)
             // console.log(counter)
             if (testStarted && !timerExpired && !wordCountReached) {
-                console.log(timeElapsed)
+                // console.log(timeElapsed)
                 setTimeElapsed(timeElapsed + 1)
-                console.log(timeElapsed)
+                // console.log(timeElapsed)
             }
             else {
                 console.log('test not started or is ended.. wpm currently static')

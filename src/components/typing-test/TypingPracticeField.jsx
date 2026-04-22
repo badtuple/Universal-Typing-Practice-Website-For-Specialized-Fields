@@ -80,7 +80,6 @@ function TypingPracticeField({setTestStarted, timerExpired, wordCountReached, se
         console.log('code that runs once!')
         setIsFirstKeyPress(false)
         setTestStarted(true)
-        // onFirstKeyPress()
       }
       
       // add typed text as green or red span objects to userTextArray

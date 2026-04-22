@@ -10,6 +10,15 @@ export function isAlphNumSym(str) {
     return /^[a-zA-Z0-9 !@#$%^&*()-+_=;:,./<>?'"]{1}$/.test(str);
 }
 
+export function calcWordCount(stringOfWords) {
+    // const wordsArray = stringOfWords.split(' ');
+
+    // updatedUserArray.filter(spaces => spaces.props.children === ' ').length
+
+    return   ((stringOfWords.split(/(?<=[a-zA-Z0-9!@#$%^&*()-+_=;:,./<>?'"])\s+/)).length - 1)
+
+}
+
 // export function autoFocusElement() {
 //     const inputRef = useRef(null);
     

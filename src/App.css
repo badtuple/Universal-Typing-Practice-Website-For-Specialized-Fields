@@ -293,6 +293,12 @@
   color: #00ff00;
 }
 
+.customTextAreaRow {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
 .customTextArea {
   height: 200px;
   width: 70%;
@@ -300,6 +306,87 @@
   max-width: 70%;
   font-size: 1rem;
 }
+
+.customTextAreaWordCounterGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  /* margin-left: 10px; */
+  margin-block: 10px;
+  /* text-align: center; */
+  font-size: 1.2rem;
+}
+
+.customTextAreaWordCounterLabel {
+  /* margin-left: 10px; */
+  /* margin-block: 10px; */
+  font-style: bold;
+}
+
+.customTextAreaWordCounter {
+  height: 15px;
+  width: 40px;
+  margin: 5px;
+  color: #00ff00;
+}
+
+.timeInputLabel {
+  width: fit-content;
+}
+
+.timeInputRow {
+  width: fit-content;
+  margin: 0 auto;
+  padding-inline: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: fit-content; */
+  /* width: 3em; */
+  /* height: fit-content; */
+  /* text-align: center; */
+  /* font-size: 1rem; */
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: #00dd00;
+  background-color: #2b2a33;
+}
+
+.timeInput {
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 2ch;
+  /* width: fit-content; */
+  padding-inline: 2px;
+  /* box-sizing: border-box; */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.timeInputColon {
+  margin-inline: 2px;
+  /* padding: 0; */
+  padding-bottom: 6px;
+  line-height: 1;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 
 
 

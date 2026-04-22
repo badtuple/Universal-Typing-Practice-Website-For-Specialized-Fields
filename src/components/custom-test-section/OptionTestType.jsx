@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react';
 
 import GenericRadioButton from './GenericRadioButton';
+import OptionGeneratedTextModifiers from './OptionGenTextModifiers';
+import TimerUserInputBox from './TimerUserInputBox';
+import * as CONSTANTS from '/src/utils/constants';
 
 import '/src/App.css';
-import OptionGeneratedTextModifiers from './OptionGenTextModifiers';
 
 
 function OptionTestType ({accordionSectionOpen}) {
@@ -12,6 +14,8 @@ function OptionTestType ({accordionSectionOpen}) {
     const [selectedTest, setSelectedTest] = useState('')
     const [selectedTestTypeOption, setSelectedTestTypeOption] = useState('')
     const [testTypeOptionsList, setTestTypeOptionsList] = useState([])
+
+    const [userCustomTextWordCount, setUserCustomTextWordCount] = useState(0)
 
     useEffect( () => {
         if (selectedTest === 'Word-Count Based') {
@@ -23,10 +27,15 @@ function OptionTestType ({accordionSectionOpen}) {
     }, [selectedTest, selectedTestTypeOption])
 
     useEffect ( () => {
-        if (selectedTestTypeOption === 'Custom') {
+        if (selectedTestTypeOption === '') {
             console.log('idk')
         }
     })
+
+    const updatedTextAreaInput = function (userInput) {
+        
+        setUserCustomTextWordCount(CONSTANTS.calcWordCount(userInput))
+    }
 
     // // checks if accordion component is clicked
     // const updateAccordionStatus = function () {
@@ -45,12 +54,26 @@ function OptionTestType ({accordionSectionOpen}) {
 
             {/* {selectedTest === 'Timer Based' ? <OptionGeneratedTextModifiers/> : null} */}
 
+            <div className={accordionSectionOpen && selectedTest === 'Timer Based' && selectedTestTypeOption === 'Custom Time' ? 'customTimeGroup' : 'contentHidden'}>
+                {/* <label htmlFor='timeLimit'>Time Limit: </label> */}
+                {/* <input type="number" max='99' min='0' step='1' required /> */}
+                {/* <input type="number" max='59' min='0' step='1' required /> */}
+                {/* <input type="text" placeholder="00:00" pattern="[0-5]?[0-9]:[0-5][0-9]" maxLength={5} /> */}
+                <TimerUserInputBox />
+            </div>
+
             <div className={accordionSectionOpen && selectedTest === 'Timer Based' ? '' : 'contentHidden'}>
                 <OptionGeneratedTextModifiers/>
             </div>
 
             <div className={accordionSectionOpen && selectedTest === 'Word-Count Based' && selectedTestTypeOption === 'Custom Text' ? '' : 'contentHidden'}>
-                <textarea className='customTextArea' placeholder='Type or paste your custom text here...' name='usersCustomText' required />
+                <div className='customTextAreaRow'>
+                    <div className='customTextAreaWordCounterGroup'>
+                        <label className='customTextAreaWordCounterLabel' htmlFor='wordCount' >Words: </label>
+                        <input className='customTextAreaWordCounter' id='wordCount' type='counter' placeholder='' name='userCustomTextWordCount' value={userCustomTextWordCount} disabled />
+                    </div>
+                    <textarea className='customTextArea' placeholder='Type or paste your custom text here...' name='usersCustomText' onInput={(e) => updatedTextAreaInput(e.target.value)} required />
+                </div>
             </div>
             
             {/* <div className='customTestOptionsAccordion' onClick={updateAccordionStatus}>
