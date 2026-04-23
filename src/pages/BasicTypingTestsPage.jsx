@@ -38,7 +38,7 @@ function BasicTypingTestsPage () {
     const [selectedTest, setSelectedTest] = useState('Timer Based');
     const [selectedTestTypeOption, setSelectedTestTypeOption] = useState('1 min');
     const [customTime, setCustomTime] = useState('00:00');
-
+    const [customTextInput, setCustomTextInput] = useState('no text was entered lols')
     const [selectedModifiers, setSelectedModifiers] = useState({'Capital Letters': true, 'Punctuation': true, 'Numbers': false, 'Symbols': false})
     const [selectedInsertionPoint, setSelectedInsertionPoint] = useState('Underscore');
     const [isChecked, setIsChecked] = useState(true);
@@ -69,7 +69,7 @@ function BasicTypingTestsPage () {
             <div className='genericSectionTitle'>Custom Test</div>
             <CustomTestOptionsAccordion accordionSectionOpen={accordionSectionOpen} setAccordionSectionOpen={setAccordionSectionOpen} />
             <div className={accordionSectionOpen ? '' : 'contentHidden'}>
-                <OptionTestType accordionSectionOpen={accordionSectionOpen} selectedTest={selectedTest} setSelectedTest={setSelectedTest} selectedTestTypeOption={selectedTestTypeOption} setSelectedTestTypeOption={setSelectedTestTypeOption} setCustomTime={setCustomTime} selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
+                <OptionTestType accordionSectionOpen={accordionSectionOpen} selectedTest={selectedTest} setSelectedTest={setSelectedTest} selectedTestTypeOption={selectedTestTypeOption} setSelectedTestTypeOption={setSelectedTestTypeOption} setCustomTime={setCustomTime} setCustomTextInput={setCustomTextInput} selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
                 <OptionInsertionPointStyle selectedOption={selectedInsertionPoint} setSelectedOption={setSelectedInsertionPoint} />
                 <ShowInsertionPointCheckBox isChecked={isChecked} setIsChecked={setIsChecked} />
                 <OptionShowStats selectedOption={selectedOptionShowStats} setSelectedOption={setSelectedOptionShowStats} />

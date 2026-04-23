@@ -9,7 +9,7 @@ import * as CONSTANTS from '/src/utils/constants';
 import '/src/App.css';
 
 
-function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, selectedTestTypeOption, setSelectedTestTypeOption, setCustomTime, selectedModifiers, setSelectedModifiers}) {
+function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, selectedTestTypeOption, setSelectedTestTypeOption, setCustomTime, setCustomTextInput, selectedModifiers, setSelectedModifiers}) {
 
     // const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
 
@@ -50,7 +50,7 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
             </div>
 
             <div className={accordionSectionOpen && selectedTest === 'Word-Count Based' && selectedTestTypeOption === 'Custom Text' ? '' : 'contentHidden'}>
-                <TextAreaUserInputBox />
+                <TextAreaUserInputBox setCustomTextInput={setCustomTextInput} />
             </div>
 
             <div className={accordionSectionOpen && selectedTestTypeOption !== 'Custom Text' ? '' : 'contentHidden'}>
