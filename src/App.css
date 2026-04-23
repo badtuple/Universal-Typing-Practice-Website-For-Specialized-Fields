@@ -408,6 +408,24 @@ input[type="number"] {
   accent-color: #00dd00 ;
 }
 
+.startTestSubmitFormButton {
+  margin-block: 5%;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #009900;
+  border-color: #006600;
+  border-radius: 15px;
+  border-style: outset;
+  border-width: 5px;
+}
+
+.startTestSubmitFormButton:hover {
+  border-color: #00ffff;
+}
+
 
 
 

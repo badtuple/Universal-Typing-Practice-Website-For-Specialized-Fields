@@ -37,6 +37,8 @@ function CustomTestSectionForm () {
                 <OptionShowStats selectedOption={selectedOptionShowStats} setSelectedOption={setSelectedOptionShowStats} />
                 <OptionShowTimer selectedOption={selectedOptionShowTimer} setSelectedOption={setSelectedOptionShowTimer} />
                 <OptionShowWordCounter selectedOption={selectedOptionShowWordCounter} setSelectedOption={setSelectedOptionShowWordCounter} />
+
+                <button className='startTestSubmitFormButton' type='submit'>Start Test</button>
             </div>
             {/* </form> */}
 
