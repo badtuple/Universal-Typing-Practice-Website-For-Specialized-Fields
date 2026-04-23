@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 // import AutosizeInput from 'react-input-autosize';
 
-import * as CONSTANTS from '../../utils/constants.jsx'
+import * as CONSTANTS from '../../utils/constants.jsx';
 import { isAlphNumSym } from '../../utils/constants.jsx';
 import Timer from './timed/Timer.jsx';
 

@@ -1,31 +1,32 @@
-import {useState, useEffect} from 'react';
+// import {useState, useEffect} from 'react';
 
-import QuickLinkCard from '../components/common/QuickLinkCard';
-import CustomTestOptionsAccordion from '../components/custom-test-section/CustomTestOptionsAccordion';
-import OptionTestType from '../components/custom-test-section/OptionTestType';
-import OptionInsertionPointStyle from '../components/custom-test-section/OptionInsertionPointStyle';
-import ShowInsertionPointCheckBox from '../components/custom-test-section/ShowInsertionPointCheckBox';
-import OptionShowStats from '../components/custom-test-section/OptionShowStats';
-import OptionShowTimer from '../components/custom-test-section/OptionShowTimer';
-import OptionShowWordCounter from '../components/custom-test-section/OptionShowWordCounter';
+import QuickLinkCard from '../components/common/QuickLinkCard.jsx';
+import CustomTestSectionForm from '/src/components/custom-test-section/CustomTestSectionForm.jsx';
+// import CustomTestOptionsAccordion from '../components/custom-test-section/CustomTestOptionsAccordion';
+// import OptionTestType from '../components/custom-test-section/OptionTestType';
+// import OptionInsertionPointStyle from '../components/custom-test-section/OptionInsertionPointStyle';
+// import ShowInsertionPointCheckBox from '../components/custom-test-section/ShowInsertionPointCheckBox';
+// import OptionShowStats from '../components/custom-test-section/OptionShowStats';
+// import OptionShowTimer from '../components/custom-test-section/OptionShowTimer';
+// import OptionShowWordCounter from '../components/custom-test-section/OptionShowWordCounter';
 
 import '/src/App.css';
 
 
 function BasicTypingTestsPage () {
 
-    const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
+    // const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
 
-    const [selectedTest, setSelectedTest] = useState('Timer Based');
-    const [selectedTestTypeOption, setSelectedTestTypeOption] = useState('1 min');
-    const [customTime, setCustomTime] = useState('00:00');
-    const [customTextInput, setCustomTextInput] = useState('no text was entered lols')
-    const [selectedModifiers, setSelectedModifiers] = useState({'Capital Letters': true, 'Punctuation': true, 'Numbers': false, 'Symbols': false})
-    const [selectedInsertionPoint, setSelectedInsertionPoint] = useState('Underscore');
-    const [isChecked, setIsChecked] = useState(true);
-    const [selectedOptionShowStats, setSelectedOptionShowStats] = useState('Show');
-    const [selectedOptionShowTimer, setSelectedOptionShowTimer] = useState('Show');
-    const [selectedOptionShowWordCounter, setSelectedOptionShowWordCounter] = useState('Show');
+    // const [selectedTest, setSelectedTest] = useState('Timer Based');
+    // const [selectedTestTypeOption, setSelectedTestTypeOption] = useState('1 min');
+    // const [customTime, setCustomTime] = useState('00:00');
+    // const [customTextInput, setCustomTextInput] = useState('no text was entered lols')
+    // const [selectedModifiers, setSelectedModifiers] = useState({'Capital Letters': true, 'Punctuation': true, 'Numbers': false, 'Symbols': false})
+    // const [selectedInsertionPoint, setSelectedInsertionPoint] = useState('Underscore');
+    // const [isChecked, setIsChecked] = useState(true);
+    // const [selectedOptionShowStats, setSelectedOptionShowStats] = useState('Show');
+    // const [selectedOptionShowTimer, setSelectedOptionShowTimer] = useState('Show');
+    // const [selectedOptionShowWordCounter, setSelectedOptionShowWordCounter] = useState('Show');
 
     return (
         <>
@@ -46,7 +47,8 @@ function BasicTypingTestsPage () {
             </span>
 
             <div className='genericSectionTitle'>Custom Test</div>
-            <CustomTestOptionsAccordion accordionSectionOpen={accordionSectionOpen} setAccordionSectionOpen={setAccordionSectionOpen} />
+            <CustomTestSectionForm />
+            {/* <CustomTestOptionsAccordion accordionSectionOpen={accordionSectionOpen} setAccordionSectionOpen={setAccordionSectionOpen} />
             <div className={accordionSectionOpen ? '' : 'contentHidden'}>
                 <OptionTestType accordionSectionOpen={accordionSectionOpen} selectedTest={selectedTest} setSelectedTest={setSelectedTest} selectedTestTypeOption={selectedTestTypeOption} setSelectedTestTypeOption={setSelectedTestTypeOption} setCustomTime={setCustomTime} setCustomTextInput={setCustomTextInput} selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
                 <OptionInsertionPointStyle selectedOption={selectedInsertionPoint} setSelectedOption={setSelectedInsertionPoint} />
@@ -54,7 +56,7 @@ function BasicTypingTestsPage () {
                 <OptionShowStats selectedOption={selectedOptionShowStats} setSelectedOption={setSelectedOptionShowStats} />
                 <OptionShowTimer selectedOption={selectedOptionShowTimer} setSelectedOption={setSelectedOptionShowTimer} />
                 <OptionShowWordCounter selectedOption={selectedOptionShowWordCounter} setSelectedOption={setSelectedOptionShowWordCounter} />
-            </div>
+            </div> */}
 
         </>
     )
