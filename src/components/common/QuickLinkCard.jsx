@@ -7,7 +7,7 @@ import '/src/App.css';
 
 function QuickLinkCard ({className, cardText, linkTo, typingTestChoice}) {
 
-    // below not needed here. useSearchParams is only needed when 
+    // below not needed here. useSearchParams is only needed when you want to grab url param values or responsively set them while on the current page (meaning no page refreshes or navigating to different page)
     // const [searchParams, setSearchParams] = useSearchParams({ testChoice: typingTestChoice });
     const navigateTo = useNavigate();
 

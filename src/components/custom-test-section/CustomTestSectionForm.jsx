@@ -1,4 +1,6 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 
 import CustomTestOptionsAccordion from '/src/components/custom-test-section/CustomTestOptionsAccordion';
 import OptionTestType from '/src/components/custom-test-section/OptionTestType';
@@ -13,7 +15,9 @@ import '/src/App.css';
 
 function CustomTestSectionForm () {
 
-    const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
+    const navigateTo = useNavigate();
+
+    const [accordionSectionOpen, setAccordionSectionOpen] = useState(false);
 
     const [selectedTest, setSelectedTest] = useState('Timer Based');
     const [selectedTestTypeOption, setSelectedTestTypeOption] = useState('1 min');
@@ -26,9 +30,19 @@ function CustomTestSectionForm () {
     const [selectedOptionShowTimer, setSelectedOptionShowTimer] = useState('Show');
     const [selectedOptionShowWordCounter, setSelectedOptionShowWordCounter] = useState('Show');
 
+    const handleFormSubmit = function () {
+
+        const updatedUrl = `/BasicTypingTests/TypingTest/?testType=${selectedTest}&testTypeSubOption=${selectedTestTypeOption}&timeLimit=${customTime}&autoGenModifiers=${JSON.stringify(selectedModifiers)}&insertionPointType=${selectedInsertionPoint}&showInsertionPoint=${isChecked}&showStats=${selectedOptionShowStats}&showTimer=${selectedOptionShowTimer}&showWordCounter=${selectedOptionShowWordCounter}&customText=${encodeURIComponent(customTextInput)}`;
+
+        navigateTo(updatedUrl, {
+            state: {
+                customTextInput
+            }
+        })
+    }
+
     return (
         <>
-            {/* <form action=""> */}
             <CustomTestOptionsAccordion accordionSectionOpen={accordionSectionOpen} setAccordionSectionOpen={setAccordionSectionOpen} />
             <div className={accordionSectionOpen ? '' : 'contentHidden'}>
                 <OptionTestType accordionSectionOpen={accordionSectionOpen} selectedTest={selectedTest} setSelectedTest={setSelectedTest} selectedTestTypeOption={selectedTestTypeOption} setSelectedTestTypeOption={setSelectedTestTypeOption} setCustomTime={setCustomTime} setCustomTextInput={setCustomTextInput} selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
@@ -38,10 +52,8 @@ function CustomTestSectionForm () {
                 <OptionShowTimer selectedOption={selectedOptionShowTimer} setSelectedOption={setSelectedOptionShowTimer} />
                 <OptionShowWordCounter selectedOption={selectedOptionShowWordCounter} setSelectedOption={setSelectedOptionShowWordCounter} />
 
-                <button className='startTestSubmitFormButton' type='submit'>Start Test</button>
+                <button className='startTestSubmitFormButton' type='submit' onClick={handleFormSubmit}>Start Test</button>
             </div>
-            {/* </form> */}
-
         </>
     )
 }
