@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react';
 
 import GenericRadioButton from './GenericRadioButton';
-import OptionGeneratedTextModifiers from './OptionGenTextModifiers';
 import TimerUserInputBox from './TimerUserInputBox';
+import TextAreaUserInputBox from './TextAreaUserInputBox';
+import OptionGeneratedTextModifiers from './OptionGenTextModifiers';
 import * as CONSTANTS from '/src/utils/constants';
 
 import '/src/App.css';
@@ -13,7 +14,6 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
     // const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
 
     const [testTypeOptionsList, setTestTypeOptionsList] = useState([])
-    const [userCustomTextWordCount, setUserCustomTextWordCount] = useState(0)
 
     useEffect( () => {
         if (selectedTest === 'Word-Count Based') {
@@ -29,10 +29,6 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
             console.log('idk')
         }
     })
-
-    const updatedTextAreaInput = function (userInput) {
-        setUserCustomTextWordCount(CONSTANTS.calcWordCount(userInput))
-    }
 
     // // checks if accordion component is clicked
     // const updateAccordionStatus = function () {
@@ -53,18 +49,12 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
                 <TimerUserInputBox setCustomTime={setCustomTime} />
             </div>
 
-            <div className={accordionSectionOpen && selectedTest === 'Timer Based' ? '' : 'contentHidden'}>
-                <OptionGeneratedTextModifiers selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
+            <div className={accordionSectionOpen && selectedTest === 'Word-Count Based' && selectedTestTypeOption === 'Custom Text' ? '' : 'contentHidden'}>
+                <TextAreaUserInputBox />
             </div>
 
-            <div className={accordionSectionOpen && selectedTest === 'Word-Count Based' && selectedTestTypeOption === 'Custom Text' ? '' : 'contentHidden'}>
-                <div className='customTextAreaRow'>
-                    <div className='customTextAreaWordCounterGroup'>
-                        <label className='customTextAreaWordCounterLabel' htmlFor='wordCount' >Words: </label>
-                        <input className='customTextAreaWordCounter' id='wordCount' type='counter' placeholder='' name='userCustomTextWordCount' value={userCustomTextWordCount} disabled />
-                    </div>
-                    <textarea className='customTextArea' placeholder='Type or paste your custom text here...' name='usersCustomText' onInput={(e) => updatedTextAreaInput(e.target.value)} required />
-                </div>
+            <div className={accordionSectionOpen && selectedTestTypeOption !== 'Custom Text' ? '' : 'contentHidden'}>
+                <OptionGeneratedTextModifiers selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
             </div>
         </>
     )
