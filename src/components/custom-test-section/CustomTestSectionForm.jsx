@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, URLSearchParams } from 'react-router-dom';
 
 import CustomTestOptionsAccordion from '/src/components/custom-test-section/CustomTestOptionsAccordion';
 import OptionTestType from '/src/components/custom-test-section/OptionTestType';
@@ -32,13 +32,25 @@ function CustomTestSectionForm () {
 
     const handleFormSubmit = function () {
 
-        const updatedUrl = `/BasicTypingTests/TypingTest/?testType=${selectedTest}&testTypeSubOption=${selectedTestTypeOption}&timeLimit=${customTime}&autoGenModifiers=${JSON.stringify(selectedModifiers)}&insertionPointType=${selectedInsertionPoint}&showInsertionPoint=${isChecked}&showStats=${selectedOptionShowStats}&showTimer=${selectedOptionShowTimer}&showWordCounter=${selectedOptionShowWordCounter}&customText=${encodeURIComponent(customTextInput)}`;
+        const params = new URLSearchParams({
+            testType: selectedTest,
+            testTypeSubOption: selectedTestTypeOption,
+            timeLimit: customTime,
+            autoGenModifiers: JSON.stringify(selectedModifiers),
+            insertionPointType: selectedInsertionPoint,
+            showInsertionPoint: isChecked,
+            showStats: selectedOptionShowStats,
+            showTimer: selectedOptionShowTimer,
+            showWordCounter: selectedOptionShowWordCounter,
+            customText: JSON.stringify(customTextInput),
+        });
 
-        navigateTo(updatedUrl, {
+        navigateTo(`/BasicTypingTests/TypingTest/?${params.toString()}`, {
             state: {
                 customTextInput
             }
-        })
+        });
+
     }
 
     return (
