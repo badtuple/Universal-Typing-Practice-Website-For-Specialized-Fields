@@ -11,8 +11,6 @@ import '/src/App.css';
 
 function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, selectedTestTypeOption, setSelectedTestTypeOption, setCustomTime, setCustomTextInput, selectedModifiers, setSelectedModifiers}) {
 
-    // const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
-
     const [testTypeOptionsList, setTestTypeOptionsList] = useState([])
 
     useEffect( () => {
@@ -29,16 +27,6 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
             console.log('idk')
         }
     })
-
-    // // checks if accordion component is clicked
-    // const updateAccordionStatus = function () {
-    //     if (accordionSectionOpen) {
-    //         setAccordionSectionOpen(false);
-    //     }
-    //     else {
-    //         setAccordionSectionOpen(true);
-    //     }
-    // }
 
     return (
         <>

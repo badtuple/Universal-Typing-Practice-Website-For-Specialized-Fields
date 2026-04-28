@@ -7,8 +7,6 @@ import '/src/App.css';
 
 function CustomTestOptionsAccordion ({accordionSectionOpen, setAccordionSectionOpen}) {
 
-    // const [accordionSectionOpen, setAccordionSectionOpen] = useState(false)
-
     // checks if accordion component is clicked
     const updateAccordionStatus = function () {
         if (accordionSectionOpen) {

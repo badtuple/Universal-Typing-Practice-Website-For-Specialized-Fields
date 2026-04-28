@@ -5,18 +5,6 @@ import '/src/App.css';
 
 function GenericRadioButton ({optionsList, rowLabel, selectedOption, setSelectedOption}) {
 
-    // const [selectedOption, setSelectedOption] = useState('')
-
-    // // checks if accordion component is clicked
-    // const updateAccordionStatus = function () {
-    //     if (accordionSectionOpen) {
-    //         setAccordionSectionOpen(false);
-    //     }
-    //     else {
-    //         setAccordionSectionOpen(true);
-    //     }
-    // }
-
     return (
         <>
             <span className='genericButtonGroupRow'>

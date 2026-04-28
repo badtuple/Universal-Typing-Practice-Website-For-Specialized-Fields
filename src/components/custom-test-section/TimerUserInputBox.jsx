@@ -5,10 +5,6 @@ import '/src/App.css';
 
 function TimerUserInputBox ({setCustomTime}) {
 
-    // useEffect ( () => {
-    //     console.log(customTime)
-    // }, [customTime, setCustomTime])
-
     const minsRef = useRef(null);
     const secsRef = useRef(null);
 
@@ -48,19 +44,6 @@ function TimerUserInputBox ({setCustomTime}) {
 
     const handleFocus = function (inputEvent) {
         inputEvent.target.select();
-
-
-
-        // if (inputEvent.target === minsRef.current) {
-        //     // setCustomTime(`${String(inputEvent.target.value)}${String(customTime.slice(2, -1))}`);
-        //     setCustomTime(String(inputEvent.target.value) + String(customTime.slice(2, -1)));
-        //     console.log(customTime);
-        // }
-        // else if (inputEvent.target === secsRef.current) {
-        //     // setCustomTime(`${String(customTime.slice(0, 2))}${String(inputEvent.target.value)}`);
-        //     setCustomTime(String(customTime.slice(0, 2)) + String(inputEvent.target.value));
-        //     console.log(customTime);
-        // }
     }
 
     const updateCustomTime = function () {

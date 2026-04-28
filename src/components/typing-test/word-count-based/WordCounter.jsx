@@ -39,19 +39,6 @@ function WordCounter({wordCountReached, setWordCountReached, wordsTyped, testRes
         }
     }, [wordsTyped, wordCountReached])
 
-
-    // const displayWordCounter = function() {
-
-    //     return `${wordsRemaining} Words Left`;
-    // }
-
-    // const displayTimer = function() {
-    //     let mins = Math.floor(timeRemaining / 60);
-    //     let secs = timeRemaining % 60;
-
-    //     return `${mins}:${String(secs).padStart(2,'0')}`;
-    // }
-
     const displayWordCounter = function() {
 
         let contentVar = `${wordsRemaining} Words Left`
@@ -72,8 +59,6 @@ function WordCounter({wordCountReached, setWordCountReached, wordsTyped, testRes
 
     return (
         <>
-            {/* <div className={`timer ${ testStarted && timeRemaining <= 3 ? 'testEnding' : '' }`} tabIndex='1'>{displayTimer()}</div> */}
-            {/* <div className={`wordCounter ${ showWordCounter ? '' : 'contentHidden' }`} tabIndex='1'>{displayWordCounter()}</div> */}
             {displayWordCounter()}
         </>
     )

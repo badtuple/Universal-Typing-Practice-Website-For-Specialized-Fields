@@ -79,18 +79,26 @@ function TypingTest({typingTestChoice}) {
 
     useEffect(() => {
         processCustomTestUserOptions();
-        // console.log()
     }, []);
 
 
+    // updates all custom test user options state variables from url params to their desired data type and values
     const processCustomTestUserOptions = function () {
 
+
+        // testType: selectedTest,
+        // testTypeSubOption: selectedTestTypeOption,
+            // timeLimit: customTime,
+        // autoGenModifiers: JSON.stringify(selectedModifiers),
+        // insertionPointType: selectedInsertionPoint,
+        // showInsertionPoint: isChecked,
+            // showStats: selectedOptionShowStats,
+            // showTimer: selectedOptionShowTimer,
+            // showWordCounter: selectedOptionShowWordCounter,
+        // customText: JSON.stringify(customTextInput),
+        
         const params = new URLSearchParams(locationObject.search)
 
-
-
-
-        // updates all custom test user options state variables from url params to their desired data type and values
 
         setTestType(params.get('testType'));
         // console.log('from url', params.get('testType'))
@@ -183,75 +191,27 @@ function TypingTest({typingTestChoice}) {
             if (testType === 'Timer Based') {
                 return (
                     <>
-                        {/* <div className={showWordCounter ? '' : 'contentHidden'}> */}
-                            <WordCounter wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} wordsTyped={wordsTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} wordCount={wordCount} showWordCounter={showWordCounter} />
-                        {/* </div> */}
+                        <WordCounter wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} wordsTyped={wordsTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} wordCount={wordCount} showWordCounter={showWordCounter} />
 
-                        {/* <div className={showTimer ? '' : 'contentHidden'}> */}
-                            <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} timerLength={timeLimit} wordCountReached={wordCountReached} showTimer={showTimer} />
-                        {/* </div> */}
+                        <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} timerLength={timeLimit} wordCountReached={wordCountReached} showTimer={showTimer} />
                     </>
                 )
             }
             else if (testType === 'Word-Count Based') {
                 return (
                     <>
-                        {/* <div className={showTimer ? '' : 'contentHidden'}> */}
-                            <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} timerLength={timeLimit} wordCountReached={wordCountReached} showTimer={showTimer} />
-                        {/* </div> */}
+                        <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} timerLength={timeLimit} wordCountReached={wordCountReached} showTimer={showTimer} />
 
-                        {/* <div className={showWordCounter ? '' : 'contentHidden'}> */}
-                            <WordCounter wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} wordsTyped={wordsTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} wordCount={wordCount} showWordCounter={showWordCounter} />
-                        {/* </div> */}
+                        <WordCounter wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} wordsTyped={wordsTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} testType={testType} wordCount={wordCount} showWordCounter={showWordCounter} />
                     </>
                 )
             }
         
         }
-
         
-
-        
-            // testType: selectedTest,
-            // testTypeSubOption: selectedTestTypeOption,
-                // timeLimit: customTime,
-            // autoGenModifiers: JSON.stringify(selectedModifiers),
-            // insertionPointType: selectedInsertionPoint,
-            // showInsertionPoint: isChecked,
-                // showStats: selectedOptionShowStats,
-                // showTimer: selectedOptionShowTimer,
-                // showWordCounter: selectedOptionShowWordCounter,
-            // customText: JSON.stringify(customTextInput),
     }
 
 
-    // const displayTestChoiceWidgetsUpperRow = function() {
-    //     // console.log(typingTestChoice)
-    //     // if (typingTestChoice === 'timed') {
-    //     console.log(searchParams.get('testChoice'))
-    //     if (searchParams.get('testChoice') === 'timed') {
-    //         return (
-    //             // Timer's props are 1 input state: testStarted bool to determine when to start countdown & 1 output function: when countdown reaches 0 timerExpired bool is set to true && 1 input state: testRestarted bool used to reset all of the components state variables
-    //             <Timer testStarted={testStarted} setTimerExpired={setTimerExpired} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
-    //         )
-    //     }
-    //     else if (searchParams.get('testChoice') === 'word-count') {
-    //         return (
-    //             // WordCounter props are 1 input state and 1 output function: wordCountReached bool to determine when to stop accepting input and end test && 1 input state: wordsTyped used to display amount of words remaining in test && 1 input state and 1 output function: testRestarted bool used to reset all of the components state variables
-    //             <WordCounter wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} wordsTyped={wordsTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} />
-    //         )
-    //     }
-    //     else if (typingTestChoice === 'custom') {
-    //         return (
-    //             console.log('nothing for now')
-    //             // insert relevant custom typing test code here
-    //         )
-    //     }
-    //     else {
-    //         console.log('something went wrong: in TypingTest')
-    //     }
-    // }
-    
     return (
         <>
 

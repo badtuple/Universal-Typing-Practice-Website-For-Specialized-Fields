@@ -2,7 +2,7 @@
 
 import QuickLinkCard from "../components/common/QuickLinkCard";
 
-// import '../App.css';
+import '../App.css';
 
 
 function HomePage () {

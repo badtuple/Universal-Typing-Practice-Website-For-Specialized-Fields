@@ -1,5 +1,3 @@
-// import {useState, useEffect} from 'react';
-
 import GenericRadioButton from './GenericRadioButton';
 
 import '/src/App.css';
