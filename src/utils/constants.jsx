@@ -29,6 +29,39 @@ export function calcWordCount(stringOfWords) {
 
 }
 
+export function applyModifiers(fieldTextString, pracTextModifiers) {
+
+    let textWithModifiers
+
+    if (!pracTextModifiers['Capital Letters']) {
+        textWithModifiers = textWithModifiers.toLowerCase();
+    }
+
+    let [punc, num, sym] = [
+        pracTextModifiers['Punctuation'] ? `;:,.?'"` : '',
+        pracTextModifiers['Numbers'] ? '0-9' : '',
+        pracTextModifiers['Symbols'] ? `!@#$%^&*()[]{}-+_=/<>` : ''
+    ]
+
+    let regex = new RegExp(`[${punc + num + sym}]`, 'g')
+    
+    textWithModifiers = fieldTextString.replace(regex, '')
+
+    return textWithModifiers
+}
+
+export function processSpecializedFieldText(testType, wordCount, fieldTextString, pracTextModifiers) {
+    let processedTextString = ''
+
+    processedTextString = applyModifiers(fieldTextString, pracTextModifiers);
+
+    if (testType === 'Word-Count Based') {
+        processedTextString = processedTextString.split(' ').slice(0, wordCount + 1).join(' ');
+    }
+
+    return processedTextString
+}
+
 // export function autoFocusElement() {
 //     const inputRef = useRef(null);
     
