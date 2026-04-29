@@ -74,7 +74,8 @@ function TypingTest({typingTestChoice}) {
     const [showWordCounter, setShowWordCounter] = useState(false);
     const [userCustomTextInput, setUserCustomTextInput] = useState('');
 
-    const [wordCount, setWordCount] = useState(100)
+    const [wordCount, setWordCount] = useState(100);
+    const [processedTextString, setProcessedTextString] = useState('');
 
 
     useEffect(() => {
@@ -85,19 +86,26 @@ function TypingTest({typingTestChoice}) {
     // updates all custom test user options state variables from url params to their desired data type and values
     const processCustomTestUserOptions = function () {
 
-
         // testType: selectedTest,
         // testTypeSubOption: selectedTestTypeOption,
-            // timeLimit: customTime,
+        // timeLimit: customTime,
         // autoGenModifiers: JSON.stringify(selectedModifiers),
         // insertionPointType: selectedInsertionPoint,
         // showInsertionPoint: isChecked,
-            // showStats: selectedOptionShowStats,
-            // showTimer: selectedOptionShowTimer,
-            // showWordCounter: selectedOptionShowWordCounter,
+        // showStats: selectedOptionShowStats,
+        // showTimer: selectedOptionShowTimer,
+        // showWordCounter: selectedOptionShowWordCounter,
         // customText: JSON.stringify(customTextInput),
+        // selectedFieldThemeFileName: selectedSpecializedFieldTheme
         
+
         const params = new URLSearchParams(locationObject.search)
+        let wordCountNum = 2000
+        let customTestWordCountNum = 0
+        let textModifiers = JSON.parse(params.get('autoGenModifiers'))
+        // console.log(textModifiers)
+        let customText = locationObject.state?.customTextInput
+        // let fieldTextString = ''
 
 
         setTestType(params.get('testType'));
@@ -108,7 +116,11 @@ function TypingTest({typingTestChoice}) {
         // console.log('from state', testTypeSubOption)
         // setTimeLimit(timeLimitInSecs);
         // setTimeLimit((Number(timeLimitString.slice(0, 2)) / 60) + Number(timeLimitString.slice(-2)));
-        setAutoGenModifiers(JSON.parse(params.get('autoGenModifiers')));
+        setAutoGenModifiers(textModifiers);
+
+        // updates custom text input state variable to text value stored in session page location object state property
+        setUserCustomTextInput(customText);
+
 
         // only update these state variables if it is a custom test
         if (params.has('testType')) {
@@ -118,9 +130,6 @@ function TypingTest({typingTestChoice}) {
             setShowTimer(params.get('showTimer') === 'Show' ? true : false);
             setShowWordCounter(params.get('showWordCounter') === 'Show' ? true : false);
         }
-
-        // updates custom text input state variable to text value stored in session page location object state property
-        setUserCustomTextInput(locationObject.state?.customTextInput)
 
 
 
@@ -152,19 +161,30 @@ function TypingTest({typingTestChoice}) {
         // convert predefined word count selection from string to actual num value
         if (['100 Words', '500 Words', '1000 Words', '2000 Words'].includes(params.get('testTypeSubOption'))) {
             let wordCountChoiceString = params.get('testTypeSubOption').slice(0, 4)
-            console.log(wordCountChoiceString[3], ':')
+            // console.log(wordCountChoiceString[3], ':')
             
             if (wordCountChoiceString[3] === ' ') {
-                setWordCount(Number(wordCountChoiceString.slice(0, 3)))
+                wordCountNum = Number(wordCountChoiceString.slice(0, 3))
+                setWordCount(wordCountNum)
             }
             else if (wordCountChoiceString[3] === '0') {
-                setWordCount(Number(wordCountChoiceString))
+                wordCountNum = Number(wordCountChoiceString)
+                setWordCount(wordCountNum)
             }
         }
         // calculate number of words in custom text
         else if (params.get('testTypeSubOption') === 'Custom Text') {
-            setWordCount(CONSTANTS.calcWordCount(locationObject.state?.customTextInput))
+            customTextWordCountNum = CONSTANTS.calcWordCount(customText)
+            setWordCount(customTextWordCountNum)
         }
+
+
+        // insert fetch statement to get requested text file and convert to string, then process text to apply modifiers and slice text to word count choice
+        fetch(`/specialized-field-test-texts/${params.get('selectedFieldThemeFileName')}.txt`)
+            .then(response => response.text())
+            .then(text => {
+                setProcessedTextString(CONSTANTS.processSpecializedFieldText(params.get('testType'), wordCountNum, text, textModifiers))
+            })
 
 
     }
@@ -223,7 +243,7 @@ function TypingTest({typingTestChoice}) {
                 <RestartTestButton setTestStarted={setTestStarted} setTimerExpired={setTimerExpired} setWordCountReached={setWordCountReached} setTimeElapsed={setTimeElapsed} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} setTestRestarted={setTestRestarted} />
             </div>
             {/* TypingPracticeField's props are 1 output function: on user's first input set testStarted to true & 2 input states: timerExpired and wordCountReached bools to prevent user input if the timer has expired or word count has been reached depending on which test user chose && 4 more output functions: one to set wordCountReached bool to true if user has reached end of word-count based test, one to set the number of words the user has typed, one to set number of characters typed correctly, and one to set the total number of characters typed state variables && 1 input state and 1 output function: testRestarted bool used to reset all of the components state variables */}
-            <TypingPracticeField setTestStarted={setTestStarted} timerExpired={timerExpired} wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} showInsertionPoint={showInsertionPoint} insertionPointStyle={insertionPointStyle} />
+            <TypingPracticeField setTestStarted={setTestStarted} timerExpired={timerExpired} wordCountReached={wordCountReached} setWordCountReached={setWordCountReached} setWordsTyped={setWordsTyped} setCharTypedCorrectly={setCharTypedCorrectly} setTotalCharTyped={setTotalCharTyped} testRestarted={testRestarted} setTestRestarted={setTestRestarted} showInsertionPoint={showInsertionPoint} insertionPointStyle={insertionPointStyle} processedTextString={processedTextString} />
             <div className='lowerWidgetsRow'>
                 {/* UserTypingStats' props are 5 input states: testStarted and timeElapsed and wordsTyped used to determine the user's avg wpm and charTypedCorrectly and totalCharTyped to determine the user's accuracy percentage && 1 output function: setTimeElapsed used to update timeElapsed && 2 input states: timerExpired and wordCountReached bools used to determine when to resize component depending on which test is chosen */}
                 <UserTypingStats testStarted={testStarted} timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed} wordsTyped={wordsTyped} charTypedCorrectly={charTypedCorrectly} totalCharTyped={totalCharTyped} timerExpired={timerExpired} wordCountReached={wordCountReached} showStats={showStats} />

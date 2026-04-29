@@ -30,6 +30,8 @@ function CustomTestSectionForm () {
     const [selectedOptionShowTimer, setSelectedOptionShowTimer] = useState('Show');
     const [selectedOptionShowWordCounter, setSelectedOptionShowWordCounter] = useState('Show');
 
+    const [selectedSpecializedFieldTheme, setSelectedSpecializedFieldTheme] = useState('debugging-temp');
+
     // const handleFormSubmit = async function () {
     const handleFormSubmit = function () {
 
@@ -44,6 +46,7 @@ function CustomTestSectionForm () {
             showTimer: selectedOptionShowTimer,
             showWordCounter: selectedOptionShowWordCounter,
             customText: JSON.stringify(customTextInput),
+            selectedFieldThemeFileName: selectedSpecializedFieldTheme
         });
 
         navigateTo(`/BasicTypingTests/TypingTest/?${params.toString()}`, {
@@ -58,7 +61,7 @@ function CustomTestSectionForm () {
         <>
             <CustomTestOptionsAccordion accordionSectionOpen={accordionSectionOpen} setAccordionSectionOpen={setAccordionSectionOpen} />
             <div className={accordionSectionOpen ? '' : 'contentHidden'}>
-                <OptionTestType accordionSectionOpen={accordionSectionOpen} selectedTest={selectedTest} setSelectedTest={setSelectedTest} selectedTestTypeOption={selectedTestTypeOption} setSelectedTestTypeOption={setSelectedTestTypeOption} setCustomTime={setCustomTime} setCustomTextInput={setCustomTextInput} selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} />
+                <OptionTestType accordionSectionOpen={accordionSectionOpen} selectedTest={selectedTest} setSelectedTest={setSelectedTest} selectedTestTypeOption={selectedTestTypeOption} setSelectedTestTypeOption={setSelectedTestTypeOption} setCustomTime={setCustomTime} setCustomTextInput={setCustomTextInput} selectedModifiers={selectedModifiers} setSelectedModifiers={setSelectedModifiers} setSelectedSpecializedFieldTheme={setSelectedSpecializedFieldTheme} />
                 <OptionInsertionPointStyle selectedOption={selectedInsertionPoint} setSelectedOption={setSelectedInsertionPoint} />
                 <ShowInsertionPointCheckBox isChecked={isChecked} setIsChecked={setIsChecked} />
                 <OptionShowStats selectedOption={selectedOptionShowStats} setSelectedOption={setSelectedOptionShowStats} />

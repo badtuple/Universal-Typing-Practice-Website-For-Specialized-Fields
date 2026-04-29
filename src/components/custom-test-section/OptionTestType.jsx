@@ -9,7 +9,7 @@ import * as CONSTANTS from '/src/utils/constants';
 import '/src/App.css';
 
 
-function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, selectedTestTypeOption, setSelectedTestTypeOption, setCustomTime, setCustomTextInput, selectedModifiers, setSelectedModifiers}) {
+function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, selectedTestTypeOption, setSelectedTestTypeOption, setCustomTime, setCustomTextInput, selectedModifiers, setSelectedModifiers, setSelectedSpecializedFieldTheme}) {
 
     const [testTypeOptionsList, setTestTypeOptionsList] = useState([])
 
@@ -29,6 +29,10 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
             console.log('idk')
         }
     })
+
+    const handleDropdownMenuChange = function(event) {
+        setSelectedSpecializedFieldTheme(event.target.value)
+    }
 
     return (
         <>
@@ -51,24 +55,25 @@ function OptionTestType ({accordionSectionOpen, selectedTest, setSelectedTest, s
             <div>
                 <span className='genericButtonGroupRow'>
                     <label className='genericButtonGroupLabel'>{'Specialization Field:'}</label>
-                    <select name='' id=''>
+                    <select name='' id='' onChange={handleDropdownMenuChange}>
+                        <option value='debugging-temp'>DEBUG ME</option>
                         <option value='generic'>Generic</option>
                         <option value='accounting'>Accounting</option>
                         <option value='architecture'>Architecture</option>
-                        <option value='autoMechanics'>Auto Mechanics</option>
-                        <option value='businessLaw'>Business Law</option>
+                        <option value='auto-mechanics'>Auto Mechanics</option>
+                        <option value='business-law'>Business Law</option>
                         <option value='carpentry'>Carpentry</option>
-                        <option value='computerScience'>Computer Science</option>
-                        <option value='dataEntry'>Data Entry</option>
+                        <option value='computer-science'>Computer Science</option>
+                        <option value='data-entry'>Data Entry</option>
                         <option value='ems'>EMS</option>
-                        <option value='financialAnalysis'>Financial Analysis</option>
+                        <option value='financial-analysis'>Financial Analysis</option>
                         <option value='marketing'>Marketing</option>
-                        <option value='medicalTranscription'>Medical Transcription</option>
+                        <option value='medical-transcription'>Medical Transcription</option>
                         <option value='phlebotomy'>Phlebotomy</option>
                         <option value='psychology'>Psychology</option>
-                        <option value='socialWork'>Social Work</option>
-                        <option value='vetTech'>Vet Tech</option>
-                        <option value='webDesign'>Web Design</option>
+                        <option value='social-work'>Social Work</option>
+                        <option value='vet-tech'>Vet Tech</option>
+                        <option value='web-design'>Web Design</option>
                     </select>
                 </span>
             </div>

@@ -9,8 +9,8 @@ import Timer from './timed/Timer.jsx';
 import '../../App.css';
 
 // Defines text box component that when selected, listens for user text input and updates state of text in text box.
-function TypingPracticeField({setTestStarted, timerExpired, wordCountReached, setWordCountReached, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted, showInsertionPoint, insertionPointStyle,}) {
-  const typingPracText = CONSTANTS.TYPING_PRAC_TEXT_SAMPLE_1;
+function TypingPracticeField({setTestStarted, timerExpired, wordCountReached, setWordCountReached, setWordsTyped, setCharTypedCorrectly, setTotalCharTyped, testRestarted, setTestRestarted, showInsertionPoint, insertionPointStyle, processedTextString}) {
+  const typingPracText = processedTextString;
   const typingPracTextArray = typingPracText.split('');
   const [counter, setCounter] = useState(0);
   const [userTextArray, setUserTextArray] = useState([]);

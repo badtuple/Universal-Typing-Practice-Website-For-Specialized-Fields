@@ -31,21 +31,21 @@ export function calcWordCount(stringOfWords) {
 
 export function applyModifiers(fieldTextString, pracTextModifiers) {
 
-    let textWithModifiers
+    let textWithModifiers = fieldTextString
 
     if (!pracTextModifiers['Capital Letters']) {
-        textWithModifiers = textWithModifiers.toLowerCase();
+        textWithModifiers = fieldTextString.toLowerCase();
     }
 
     let [punc, num, sym] = [
-        pracTextModifiers['Punctuation'] ? `;:,.?'"` : '',
-        pracTextModifiers['Numbers'] ? '0-9' : '',
-        pracTextModifiers['Symbols'] ? `!@#$%^&*()[]{}-+_=/<>` : ''
+        pracTextModifiers['Punctuation'] ? '' : `;:,.?'"`,
+        pracTextModifiers['Numbers'] ? '' : '0-9',
+        pracTextModifiers['Symbols'] ? '' : `!@#$%\\^&*()\\[\\]{}\\-+_=/<>`
     ]
 
     let regex = new RegExp(`[${punc + num + sym}]`, 'g')
     
-    textWithModifiers = fieldTextString.replace(regex, '')
+    textWithModifiers = textWithModifiers.replace(regex, '')
 
     return textWithModifiers
 }
