@@ -55,7 +55,7 @@ export function processSpecializedFieldText(testType, wordCount, fieldTextString
 
     processedTextString = applyModifiers(fieldTextString, pracTextModifiers);
 
-    if (testType === 'Word-Count Based') {
+    if (testType === 'Word-Count Based' || testType === 'word-count') {
         processedTextString = processedTextString.split(' ').slice(0, wordCount + 1).join(' ');
     }
 

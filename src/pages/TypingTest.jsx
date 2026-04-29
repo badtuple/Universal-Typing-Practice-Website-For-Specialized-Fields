@@ -70,8 +70,8 @@ function TypingTest({typingTestChoice}) {
     const [insertionPointStyle, setInsertionPointStyle] = useState('');
     const [showInsertionPoint, setShowInsertionPoint] = useState(true);
     const [showStats, setShowStats] = useState(true);
-    const [showTimer, setShowTimer] = useState(false);
-    const [showWordCounter, setShowWordCounter] = useState(false);
+    const [showTimer, setShowTimer] = useState(true);
+    const [showWordCounter, setShowWordCounter] = useState(true);
     const [userCustomTextInput, setUserCustomTextInput] = useState('');
 
     const [wordCount, setWordCount] = useState(100);
@@ -107,84 +107,101 @@ function TypingTest({typingTestChoice}) {
         let customText = locationObject.state?.customTextInput
         // let fieldTextString = ''
 
+        if (params.has('testType')) {
+            setTestType(params.get('testType'));
+            // console.log('from url', params.get('testType'))
+            // console.log('from state', testType)
+            setTestTypeSubOption(params.get('testTypeSubOption'));
+            // console.log('from url', params.get('testTypeSubOption'))
+            // console.log('from state', testTypeSubOption)
+            // setTimeLimit(timeLimitInSecs);
+            // setTimeLimit((Number(timeLimitString.slice(0, 2)) / 60) + Number(timeLimitString.slice(-2)));
+            setAutoGenModifiers(textModifiers);
 
-        setTestType(params.get('testType'));
-        // console.log('from url', params.get('testType'))
-        // console.log('from state', testType)
-        setTestTypeSubOption(params.get('testTypeSubOption'));
-        // console.log('from url', params.get('testTypeSubOption'))
-        // console.log('from state', testTypeSubOption)
-        // setTimeLimit(timeLimitInSecs);
-        // setTimeLimit((Number(timeLimitString.slice(0, 2)) / 60) + Number(timeLimitString.slice(-2)));
-        setAutoGenModifiers(textModifiers);
-
-        // updates custom text input state variable to text value stored in session page location object state property
-        setUserCustomTextInput(customText);
+            // updates custom text input state variable to text value stored in session page location object state property
+            setUserCustomTextInput(customText);
 
 
         // only update these state variables if it is a custom test
-        if (params.has('testType')) {
             setInsertionPointStyle(params.get('insertionPointType'));
             setShowInsertionPoint(params.get('showInsertionPoint'));
             setShowStats(params.get('showStats') === 'Show' ? true : false);
             setShowTimer(params.get('showTimer') === 'Show' ? true : false);
             setShowWordCounter(params.get('showWordCounter') === 'Show' ? true : false);
-        }
 
 
 
-        // convert predefined time limit selection from string to actual num value
-        if (['30 secs', '1 min', '2 mins', '3 mins', '5 mins'].includes(params.get('testTypeSubOption'))) {
-            let timeLimitChoiceString = params.get('testTypeSubOption');
 
-            if (timeLimitChoiceString.slice(-4) === 'mins') {
-                let mins = Number(timeLimitChoiceString[0]);
-                let secs = 0;
+            // convert predefined time limit selection from string to actual num value
+            if (['30 secs', '1 min', '2 mins', '3 mins', '5 mins'].includes(params.get('testTypeSubOption'))) {
+                let timeLimitChoiceString = params.get('testTypeSubOption');
+
+                if (timeLimitChoiceString.slice(-4) === 'mins') {
+                    let mins = Number(timeLimitChoiceString[0]);
+                    let secs = 0;
+                    let timeLimitInSecs = (mins * 60) + secs;
+                    setTimeLimit(timeLimitInSecs);
+                }
+                else if (timeLimitChoiceString.slice(-4) === 'secs') {
+                    let timeLimitInSecs = Number(timeLimitChoiceString.slice(0, 2))
+                    setTimeLimit(timeLimitInSecs);
+                }
+            }
+            // convert time limit string to num value in seconds for timer component
+            else if (params.get('testTypeSubOption') === 'Custom Time') {
+                let timeLimitString = params.get('timeLimit');
+                let mins = Number(timeLimitString.slice(0, 2));
+                let secs = Number(timeLimitString.slice(-2));
                 let timeLimitInSecs = (mins * 60) + secs;
                 setTimeLimit(timeLimitInSecs);
             }
-            else if (timeLimitChoiceString.slice(-4) === 'secs') {
-                let timeLimitInSecs = Number(timeLimitChoiceString.slice(0, 2))
-                setTimeLimit(timeLimitInSecs);
+
+
+            // convert predefined word count selection from string to actual num value
+            if (['100 Words', '500 Words', '1000 Words', '2000 Words'].includes(params.get('testTypeSubOption'))) {
+                let wordCountChoiceString = params.get('testTypeSubOption').slice(0, 4)
+                // console.log(wordCountChoiceString[3], ':')
+                
+                if (wordCountChoiceString[3] === ' ') {
+                    wordCountNum = Number(wordCountChoiceString.slice(0, 3))
+                    setWordCount(wordCountNum)
+                }
+                else if (wordCountChoiceString[3] === '0') {
+                    wordCountNum = Number(wordCountChoiceString)
+                    setWordCount(wordCountNum)
+                }
             }
-        }
-        // convert time limit string to num value in seconds for timer component
-        else if (params.get('testTypeSubOption') === 'Custom Time') {
-            let timeLimitString = params.get('timeLimit');
-            let mins = Number(timeLimitString.slice(0, 2));
-            let secs = Number(timeLimitString.slice(-2));
-            let timeLimitInSecs = (mins * 60) + secs;
-            setTimeLimit(timeLimitInSecs);
-        }
-
-
-        // convert predefined word count selection from string to actual num value
-        if (['100 Words', '500 Words', '1000 Words', '2000 Words'].includes(params.get('testTypeSubOption'))) {
-            let wordCountChoiceString = params.get('testTypeSubOption').slice(0, 4)
-            // console.log(wordCountChoiceString[3], ':')
-            
-            if (wordCountChoiceString[3] === ' ') {
-                wordCountNum = Number(wordCountChoiceString.slice(0, 3))
-                setWordCount(wordCountNum)
+            // calculate number of words in custom text
+            else if (params.get('testTypeSubOption') === 'Custom Text') {
+                customTextWordCountNum = CONSTANTS.calcWordCount(customText)
+                setWordCount(customTextWordCountNum)
             }
-            else if (wordCountChoiceString[3] === '0') {
-                wordCountNum = Number(wordCountChoiceString)
-                setWordCount(wordCountNum)
-            }
-        }
-        // calculate number of words in custom text
-        else if (params.get('testTypeSubOption') === 'Custom Text') {
-            customTextWordCountNum = CONSTANTS.calcWordCount(customText)
-            setWordCount(customTextWordCountNum)
+
+
+            // insert fetch statement to get requested text file and convert to string, then process text to apply modifiers and slice text to word count choice
+            fetch(`/specialized-field-test-texts/${params.get('selectedFieldThemeFileName')}.txt`)
+                .then(response => response.text())
+                .then(text => {
+                    setProcessedTextString(CONSTANTS.processSpecializedFieldText(params.get('testType'), wordCountNum, text, textModifiers))
+                })
         }
 
 
-        // insert fetch statement to get requested text file and convert to string, then process text to apply modifiers and slice text to word count choice
-        fetch(`/specialized-field-test-texts/${params.get('selectedFieldThemeFileName')}.txt`)
-            .then(response => response.text())
-            .then(text => {
-                setProcessedTextString(CONSTANTS.processSpecializedFieldText(params.get('testType'), wordCountNum, text, textModifiers))
-            })
+        else if (params.has('testChoice')) {
+            setTestType(params.get('testChoice'));
+            setTimeLimit(params.get('testTime'));
+            setWordCount(params.get('testWords'));
+            setInsertionPointStyle('Underscore');
+            setShowInsertionPoint(true);
+            textModifiers = {'Capital Letters': true, 'Punctuation': true, 'Numbers': true, 'Symbols': true}
+            setAutoGenModifiers(textModifiers)
+
+            fetch('/specialized-field-test-texts/generic.txt')
+                .then(response => response.text())
+                .then(text => {
+                    setProcessedTextString(CONSTANTS.processSpecializedFieldText(params.get('testChoice'), Number(params.get('testWords')), text, textModifiers))
+                })
+        }
 
 
     }

@@ -23,7 +23,7 @@ function CustomTestSectionForm () {
     const [selectedTestTypeOption, setSelectedTestTypeOption] = useState('1 min');
     const [customTime, setCustomTime] = useState('00:00');
     const [customTextInput, setCustomTextInput] = useState('')
-    const [selectedModifiers, setSelectedModifiers] = useState({'Capital Letters': true, 'Punctuation': true, 'Numbers': false, 'Symbols': false})
+    const [selectedModifiers, setSelectedModifiers] = useState({'Capital Letters': true, 'Punctuation': true, 'Numbers': true, 'Symbols': true})
     const [selectedInsertionPoint, setSelectedInsertionPoint] = useState('Underscore');
     const [isChecked, setIsChecked] = useState(true);
     const [selectedOptionShowStats, setSelectedOptionShowStats] = useState('Show');
