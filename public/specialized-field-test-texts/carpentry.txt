@@ -15,9 +15,9 @@ A typical carpentry workflow may include material estimation, cutting lists, lay
 - 2x6 @ 14'-0" (Qty: 10)
 - Plywood 3/4" sheet 4x8 (Qty: 6)
 
-Precision is critical when marking and cutting materials, using techniques such as “measure twice, cut once” to reduce waste and errors. Marking tools include pencils, chalk lines, marking gauges, and carpenter’s squares. A chalk line may be snapped across a surface to create a straight reference line for cutting or alignment.
+Precision is critical when marking and cutting materials, using techniques such as "measure twice, cut once" to reduce waste and errors. Marking tools include pencils, chalk lines, marking gauges, and carpenter's squares. A chalk line may be snapped across a surface to create a straight reference line for cutting or alignment.
 
-Foundation carpentry involves sill plates, anchor bolts, concrete forms, rebar reinforcement, and moisture barriers. Sill plates are typically treated lumber (pressure-treated 2x4 or 2x6) anchored to concrete using 1/2" anchor bolts spaced every 4–6 feet. Concrete formwork uses plywood panels, stakes, and bracing to hold wet concrete in shape until it cures.
+Foundation carpentry involves sill plates, anchor bolts, concrete forms, rebar reinforcement, and moisture barriers. Sill plates are typically treated lumber (pressure-treated 2x4 or 2x6) anchored to concrete using 1/2" anchor bolts spaced every 4-6 feet. Concrete formwork uses plywood panels, stakes, and bracing to hold wet concrete in shape until it cures.
 
 Floor framing includes joists spaced at 16" or 24" OC, rim joists, blocking, and subfloor installation. Subflooring is commonly 3/4" tongue-and-groove plywood glued and nailed to joists using construction adhesive and ring-shank nails or screws. Example floor system notation: JOIST 2x10 @ 16" OC, SPAN 12'-0", SUBFLOOR 3/4" T&G PLYWOOD.
 
@@ -50,7 +50,7 @@ Advanced carpentry projects may involve custom stair building, which requires ca
 
 Deck construction includes footings, posts, beams, joists, decking boards, and railing systems. Example deck spec: 6x6 POST, 2x10 BEAM, 2x8 JOISTS @ 16" OC, 5/4x6 DECKING BOARDS.
 
-Roofing carpentry includes installing sheathing, underlayment, shingles, flashing, fascia boards, soffits, and drip edges. Shingle installation may be specified as 3-tab asphalt shingles or architectural shingles rated for 30–50 years.
+Roofing carpentry includes installing sheathing, underlayment, shingles, flashing, fascia boards, soffits, and drip edges. Shingle installation may be specified as 3-tab asphalt shingles or architectural shingles rated for 30-50 years.
 
 Carpentry also includes restoration work on historic buildings, requiring careful replication of original joinery, wood species matching, and preservation techniques that maintain structural and aesthetic authenticity.
 

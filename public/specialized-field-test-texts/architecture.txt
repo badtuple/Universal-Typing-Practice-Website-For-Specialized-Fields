@@ -48,9 +48,9 @@ Rendering and visualization tools produce photorealistic images and animations o
 
 Construction documents include architectural drawings, structural drawings, mechanical/electrical/plumbing (MEP) drawings, specifications, schedules, and code compliance documentation. These documents form the legal basis for construction contracts.
 
-Specifications (specs) define materials, workmanship, installation methods, and quality standards. Example spec note: “All gypsum board joints shall be taped, mudded, and sanded to Level 4 finish minimum.”
+Specifications (specs) define materials, workmanship, installation methods, and quality standards. Example spec note: "All gypsum board joints shall be taped, mudded, and sanded to Level 4 finish minimum."
 
-Construction administration involves site visits, contractor coordination, submittal review, request for information (RFI) responses, and punch list inspections. Example RFI: “Clarification requested regarding window head height at grid line B-4.”
+Construction administration involves site visits, contractor coordination, submittal review, request for information (RFI) responses, and punch list inspections. Example RFI: "Clarification requested regarding window head height at grid line B-4."
 
 Grids and coordinates are used to organize structural layouts, often labeled A, B, C horizontally and 1, 2, 3 vertically. Example: Column located at intersection B-3, offset 2'-0" east.
 

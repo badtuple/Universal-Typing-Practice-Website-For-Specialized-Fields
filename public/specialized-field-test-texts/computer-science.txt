@@ -98,7 +98,7 @@ button {
 
 User interfaces (UI) and user experience (UX) design focus on usability, accessibility, responsiveness, and visual hierarchy. Metrics include bounce rate, session duration, click-through rate (CTR), and conversion rate.
 
-Mathematics in computer science includes discrete math, linear algebra, probability, combinatorics, and graph theory. Graphs consist of nodes (vertices) and edges, often represented as G = (V, E). Algorithms such as Dijkstra’s, BFS (Breadth-First Search), and DFS (Depth-First Search) traverse graphs efficiently.
+Mathematics in computer science includes discrete math, linear algebra, probability, combinatorics, and graph theory. Graphs consist of nodes (vertices) and edges, often represented as G = (V, E). Algorithms such as Dijkstra's, BFS (Breadth-First Search), and DFS (Depth-First Search) traverse graphs efficiently.
 
 Boolean logic uses operators such as AND, OR, NOT, XOR, and NAND. Truth tables define logical outputs for binary inputs 0 and 1.
 

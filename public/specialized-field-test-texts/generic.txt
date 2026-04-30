@@ -6,11 +6,11 @@ In many places, work begins at 8:00 AM or 9:00 AM, depending on the job or locat
 
 Numbers are everywhere in daily life: 1, 2, 3, 10, 25, 50, 100, 250, 500, and 1000. Prices change constantly: $1.99, $5.50, $10.00, $19.95, or $100.00. Percentages also appear often: 5%, 10%, 25%, 50%, 75%, and 100%. Temperature might read 32°F, 68°F, 72°F, or 98.6°F depending on the weather and season.
 
-People use computers, phones, and tablets for communication, work, and entertainment. Emails are sent and received every second, often containing subject lines like “Meeting Update,” “Project Status,” or “Hello Again.” Messages include greetings such as “Hi,” “Hello,” “Good morning,” and “How are you?” Social media platforms show posts, comments, likes, shares, and notifications constantly updating.
+People use computers, phones, and tablets for communication, work, and entertainment. Emails are sent and received every second, often containing subject lines like "Meeting Update," "Project Status," or "Hello Again." Messages include greetings such as "Hi," "Hello," "Good morning," and "How are you?" Social media platforms show posts, comments, likes, shares, and notifications constantly updating.
 
 In school or learning environments, students read books, write essays, solve problems, and take notes. Teachers explain lessons using examples, questions, and exercises. Subjects include math, science, English, history, and art. A simple equation might look like 2 + 2 = 4 or 10 - 3 = 7. More advanced calculations include 12 × 8 = 96 or 144 ÷ 12 = 12.
 
-Everyday conversation includes common words like “and,” “the,” “is,” “are,” “was,” “were,” “be,” “have,” “has,” “had,” “do,” “does,” “did,” “will,” “would,” “can,” “could,” “should,” “this,” “that,” “these,” “those,” “it,” “they,” “we,” “you,” and “I.” These words appear constantly in both spoken and written English.
+Everyday conversation includes common words like "and," "the," "is," "are," "was," "were," "be," "have," "has," "had," "do," "does," "did," "will," "would," "can," "could," "should," "this," "that," "these," "those," "it," "they," "we," "you," and "I." These words appear constantly in both spoken and written English.
 
 People often ask questions such as: What time is it? Where are you going? How much does this cost? Why is this happening? When will it start? Who is responsible? These questions help gather information and guide decisions throughout the day.
 
@@ -21,11 +21,11 @@ Symbols appear in many contexts: @, #, $, %, &, *, +, -, =, /, \, <, >, and ~. E
 At work, tasks include writing reports, answering emails, attending meetings, and completing assignments. Deadlines may be set for 1 day, 3 days, 1 week, or 30 days. Projects may require collaboration between 2, 3, 5, or more people. Communication is often clear, direct, and structured to avoid confusion.
 
 A simple schedule might look like this:
-08:00 AM – Start work
-10:00 AM – Break
-12:00 PM – Lunch
-03:00 PM – Meeting
-05:00 PM – End work
+08:00 AM - Start work
+10:00 AM - Break
+12:00 PM - Lunch
+03:00 PM - Meeting
+05:00 PM - End work
 
 People often use lists to organize thoughts:
 - Buy groceries
@@ -44,7 +44,7 @@ In conversations, people often use short responses: yes, no, maybe, okay, sure, 
 
 Books, articles, and online content use paragraphs to organize ideas. Each paragraph focuses on one main idea, supported by details, examples, or explanations. Reading improves vocabulary, comprehension, and understanding of language structure.
 
-Music, movies, games, and entertainment are common topics of discussion. People share opinions like “I like this,” “That was good,” “It was okay,” or “I don’t understand.” Preferences vary widely across individuals and cultures.
+Music, movies, games, and entertainment are common topics of discussion. People share opinions like "I like this," "That was good," "It was okay," or "I don't understand." Preferences vary widely across individuals and cultures.
 
 Technology continues to grow and change. Devices include laptops, desktops, smartphones, smartwatches, and smart home systems. Applications are used for communication, productivity, learning, and entertainment. Software updates often include versions like v1.0, v2.5, or v3.14.
 
@@ -58,8 +58,8 @@ Common phrases include:
 - I am fine, thank you.
 - Please wait a moment.
 - Can you help me?
-- I don’t know.
-- Let’s go.
+- I don't know.
+- Let's go.
 
 The world is large, diverse, and constantly changing. People live, work, learn, and communicate across different environments, cultures, and time zones. Technology connects individuals instantly across distances of 1 mile or 10,000 miles.
 

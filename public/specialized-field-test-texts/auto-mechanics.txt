@@ -6,11 +6,11 @@ An OBD-II scan tool may display live data including RPM, fuel trim (short-term a
 
 The internal combustion engine operates through four strokes: intake, compression, power, and exhaust. Key components include pistons, cylinders, crankshaft, camshaft, timing belt or timing chain, valves, spark plugs, fuel injectors, and engine block. Engine displacement is commonly measured in liters (L) such as 2.0L I4, 3.5L V6, or 5.7L V8 configurations. Compression ratios may range from 9.5:1 to 12.5:1 depending on engine design.
 
-Fuel systems include carbureted systems (older vehicles) and modern electronic fuel injection (EFI) systems. Fuel injectors deliver fuel in precise amounts measured in milliseconds of pulse width, often controlled by the ECM. Fuel pressure specifications may include values such as 45–60 PSI for port fuel injection systems or higher for direct injection systems exceeding 2,000 PSI.
+Fuel systems include carbureted systems (older vehicles) and modern electronic fuel injection (EFI) systems. Fuel injectors deliver fuel in precise amounts measured in milliseconds of pulse width, often controlled by the ECM. Fuel pressure specifications may include values such as 45-60 PSI for port fuel injection systems or higher for direct injection systems exceeding 2,000 PSI.
 
-Ignition systems generate the spark required for combustion using components such as ignition coils, spark plug wires, distributor assemblies (older systems), and coil-on-plug (COP) setups. Spark plug gaps are measured in thousandths of an inch, such as 0.028"–0.060", depending on manufacturer specifications. Example ignition fault: misfire detected in cylinder #3 due to weak coil output.
+Ignition systems generate the spark required for combustion using components such as ignition coils, spark plug wires, distributor assemblies (older systems), and coil-on-plug (COP) setups. Spark plug gaps are measured in thousandths of an inch, such as 0.028"-0.060", depending on manufacturer specifications. Example ignition fault: misfire detected in cylinder #3 due to weak coil output.
 
-The charging system includes the alternator, voltage regulator, battery, and wiring harness. A healthy alternator typically produces 13.5–14.8 volts while the engine is running. Battery condition is tested using voltage readings such as 12.6V (fully charged), 12.2V (partially discharged), or below 12.0V (weak battery). Cold Cranking Amps (CCA) ratings such as 650 CCA or 850 CCA indicate battery starting power in cold temperatures.
+The charging system includes the alternator, voltage regulator, battery, and wiring harness. A healthy alternator typically produces 13.5-14.8 volts while the engine is running. Battery condition is tested using voltage readings such as 12.6V (fully charged), 12.2V (partially discharged), or below 12.0V (weak battery). Cold Cranking Amps (CCA) ratings such as 650 CCA or 850 CCA indicate battery starting power in cold temperatures.
 
 The starting system includes the ignition switch, starter motor, solenoid, and battery cables. Common issues include clicking sounds, slow cranking, or no-start conditions. Voltage drop testing may reveal excessive resistance in cables or poor grounding connections.
 
@@ -34,7 +34,7 @@ Exhaust systems include exhaust manifolds, catalytic converters, oxygen sensors,
 
 Electrical systems include wiring harnesses, relays, fuses, grounds, switches, and control modules. Fuse ratings are commonly 5A, 10A, 15A, 20A, or 30A. A blown fuse may indicate a short circuit or overloaded circuit.
 
-Example wiring note: “Check continuity between pin 4 and ground; resistance should be < 0.5 ohms.”
+Example wiring note: "Check continuity between pin 4 and ground; resistance should be < 0.5 ohms."
 
 Technicians use multimeters to measure voltage (V), resistance (ohms Ω), and current (amps A). Example measurement: 12.45V battery voltage, 0.3Ω circuit resistance, 3.2A parasitic draw.
 
@@ -42,11 +42,11 @@ Parasitic battery drain diagnostics involve testing systems when the vehicle is 
 
 Engine oil systems include oil pump, oil filter, oil pan, dipstick, and lubrication passages. Oil viscosity ratings such as 5W-30, 10W-40, or 0W-20 indicate flow characteristics at different temperatures. Low oil pressure can cause engine damage and trigger warning lights.
 
-Example service interval: oil change every 5,000–7,500 miles depending on manufacturer recommendations.
+Example service interval: oil change every 5,000-7,500 miles depending on manufacturer recommendations.
 
-Timing systems synchronize engine components using timing belts or chains. A timing belt replacement interval may be 60,000–100,000 miles. Failure can result in catastrophic engine damage in interference engines.
+Timing systems synchronize engine components using timing belts or chains. A timing belt replacement interval may be 60,000-100,000 miles. Failure can result in catastrophic engine damage in interference engines.
 
-Turbocharged and supercharged engines use forced induction to increase horsepower and torque by compressing intake air. Boost pressure is measured in PSI or bar, such as 8–14 PSI for stock turbo systems.
+Turbocharged and supercharged engines use forced induction to increase horsepower and torque by compressing intake air. Boost pressure is measured in PSI or bar, such as 8-14 PSI for stock turbo systems.
 
 Hybrid and electric vehicles (EVs) include high-voltage battery systems, inverter modules, electric drive motors, regenerative braking systems, and onboard chargers. High-voltage safety procedures require insulated tools, gloves rated for 1000V, and proper lockout/tagout procedures.
 
@@ -69,6 +69,6 @@ Shop safety practices include using jack stands instead of hydraulic jacks alone
 
 VIN (Vehicle Identification Number) decoding provides vehicle information such as manufacturer, model year, engine type, assembly plant, and production sequence. Example VIN format: 1HGCM82633A123456.
 
-Service documentation includes repair orders (RO), labor time estimates, parts invoices, warranty claims, and inspection checklists. Example RO: #458921 – Customer complaint: “engine knocking under acceleration.”
+Service documentation includes repair orders (RO), labor time estimates, parts invoices, warranty claims, and inspection checklists. Example RO: #458921 - Customer complaint: "engine knocking under acceleration."
 
 Ultimately, auto mechanics combines mechanical systems knowledge, electrical diagnostics, precision measurement, safety awareness, and hands-on repair skills to ensure vehicles operate safely, efficiently, and reliably across all driving conditions.
